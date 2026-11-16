@@ -14,6 +14,12 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/usman-profile.jpg">
 
+  <!-- Favicon Generated from Profile Picture -->
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="shortcut icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/profile-logo.png">
+
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -54,10 +60,15 @@
   <header id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Brand Name -->
-      <a href="#hero" class="group">
-        <span class="text-base sm:text-lg font-bold tracking-tight block text-white group-hover:text-cyan-400 transition-colors">Muhammad Usman</span>
-        <span class="text-xs text-slate-400 block -mt-0.5 font-medium">CCTV & Media Specialist</span>
+      <!-- Brand Logo & Name (Created from Profile Picture) -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="relative w-11 h-11 rounded-full p-[2px] bg-gradient-to-tr from-cyan-500 via-sky-400 to-emerald-400 shadow-md group-hover:scale-105 transition-transform duration-300">
+          <img src="assets/images/profile-logo.png" alt="Muhammad Usman" class="w-full h-full rounded-full object-cover bg-slate-900">
+        </div>
+        <div>
+          <span class="text-base sm:text-lg font-bold tracking-tight block text-white group-hover:text-cyan-400 transition-colors">Muhammad Usman</span>
+          <span class="text-xs text-slate-400 block -mt-0.5 font-medium">CCTV & Media Specialist</span>
+        </div>
       </a>
 
       <!-- Desktop Navigation Menu -->
@@ -1130,10 +1141,14 @@
   <!-- FOOTER -->
   <footer class="py-8 sm:py-10 border-t border-slate-800/80 bg-slate-950 text-slate-400 text-xs relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>
-        <span class="text-white font-semibold text-xs sm:text-sm">Muhammad Usman</span>
-        <span class="text-slate-500 mx-1.5">&bull;</span>
-        <span class="text-slate-400 text-xs">CCTV & Media Specialist</span>
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-cyan-500 to-emerald-400 shadow-sm">
+          <img src="assets/images/profile-logo.png" alt="Muhammad Usman" class="w-full h-full rounded-full object-cover bg-slate-900">
+        </div>
+        <div>
+          <span class="text-white font-semibold text-xs sm:text-sm block">Muhammad Usman</span>
+          <span class="text-slate-400 text-xs block">CCTV & Media Specialist</span>
+        </div>
       </div>
 
       <div class="flex gap-4 text-xs text-slate-400">
