@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://muhammad-usman.netlify.app/sitemap.xml
+
