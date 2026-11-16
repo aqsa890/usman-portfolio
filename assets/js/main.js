@@ -321,10 +321,50 @@ function initContactActions() {
         return;
       }
 
-      const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-      window.location.href = `mailto:usmanwadood090@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      showToast('Opening email client...', 'success');
-      form.reset();
+      // Check if running on web server (Netlify) or local file
+      const isLiveServer = window.location.protocol.startsWith('http');
+
+      if (isLiveServer) {
+        const formData = new FormData(form);
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnHTML = submitBtn ? submitBtn.innerHTML : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<svg class="animate-spin w-4 h-4 text-white inline-block mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg> Sending...';
+        }
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        })
+        .then(response => {
+          if (response.ok) {
+            showToast('Thank you! Your message has been sent to Muhammad Usman.', 'success');
+            form.reset();
+          } else {
+            throw new Error('Form submission failed');
+          }
+        })
+        .catch(() => {
+          // Fallback to mailto
+          const mailBody = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+          window.location.href = `mailto:usmanwadood090@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`;
+          showToast('Opening email client...', 'success');
+        })
+        .finally(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHTML;
+          }
+        });
+      } else {
+        // Local file execution fallback
+        const mailBody = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+        window.location.href = `mailto:usmanwadood090@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailBody)}`;
+        showToast('Opening email client...', 'success');
+        form.reset();
+      }
     });
   }
 }
