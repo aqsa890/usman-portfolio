@@ -1,297 +1,304 @@
 /**
- * Muhammad Usman - Professional Portfolio JavaScript
- * Features: Dark/Light Mode, Mobile Navigation, Interactive Filtering,
- * Service Estimator, WhatsApp/Email Inquirer, Toast Notifications
+ * Muhammad Usman - Enhanced Portfolio JavaScript
+ * Features: Typewriter Hero Effect, Domain Switcher, 3D Hover Spotlight,
+ * Interactive Quickbar, Service Builder, Theme Management & Toast
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Lucide Icons
   if (window.lucide) {
     window.lucide.createIcons();
   }
 
   initTheme();
-  initNavigation();
-  initSkillFiltering();
-  initServiceEstimator();
+  initHeroTypewriter();
+  initDomainSwitcher();
+  initSpotlightEffect();
+  initServiceInquiry();
+  initCopyActions();
   initContactForm();
-  initScrollAnimations();
+  initScrollEffects();
 });
 
 /* --------------------------------------------------------------------------
- * 1. THEME TOGGLER (Dark / Light)
+ * 1. HERO TYPEWRITER / ROLE ROTATOR
  * -------------------------------------------------------------------------- */
-function initTheme() {
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
-  const html = document.documentElement;
+function initHeroTypewriter() {
+  const target = document.getElementById('role-rotator');
+  if (!target) return;
 
-  // Check saved theme or system preference
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  const roles = [
+    'CCTV Surveillance Systems',
+    'Audiovisual & Live Broadcasts',
+    'Cat6 Structured Cabling & Networks',
+    'DVR & NVR Security Storage',
+    'Multi-Cam Video Production'
+  ];
 
-  if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
-    html.classList.add('light');
-  } else {
-    html.classList.remove('light');
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let speed = 90;
+
+  function type() {
+    const currentRole = roles[roleIndex];
+
+    if (isDeleting) {
+      target.textContent = currentRole.substring(0, charIndex - 1);
+      charIndex--;
+      speed = 45;
+    } else {
+      target.textContent = currentRole.substring(0, charIndex + 1);
+      charIndex++;
+      speed = 90;
+    }
+
+    if (!isDeleting && charIndex === currentRole.length) {
+      speed = 2200; // Pause at full word
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      speed = 400; // Pause before typing new word
+    }
+
+    setTimeout(type, speed);
   }
 
-  function toggleTheme() {
-    html.classList.toggle('light');
-    const currentTheme = html.classList.contains('light') ? 'light' : 'dark';
-    localStorage.setItem('theme', currentTheme);
-    showToast(`Switched to ${currentTheme} mode`, 'info');
-  }
-
-  if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
-  if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
+  type();
 }
 
 /* --------------------------------------------------------------------------
- * 2. NAVIGATION & MOBILE MENU
+ * 2. DOMAIN SWITCHER (All / CCTV / Media)
  * -------------------------------------------------------------------------- */
-function initNavigation() {
-  const navbar = document.getElementById('main-nav');
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
-  const navLinks = document.querySelectorAll('.desktop-nav-link');
-  const sections = document.querySelectorAll('section[id]');
+function initDomainSwitcher() {
+  const switchBtns = document.querySelectorAll('.domain-pill');
+  const items = document.querySelectorAll('[data-domain]');
 
-  // Scroll effect on navbar
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      navbar.classList.add('shadow-lg', 'bg-opacity-95');
-    } else {
-      navbar.classList.remove('shadow-lg', 'bg-opacity-95');
+  switchBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      switchBtns.forEach(b => {
+        b.classList.remove('bg-cyan-500', 'text-white', 'shadow-md', 'shadow-cyan-500/25');
+        b.classList.add('bg-slate-800/60', 'text-slate-300');
+      });
+
+      btn.classList.add('bg-cyan-500', 'text-white', 'shadow-md', 'shadow-cyan-500/25');
+      btn.classList.remove('bg-slate-800/60', 'text-slate-300');
+
+      const domain = btn.getAttribute('data-target');
+
+      items.forEach(item => {
+        const itemDomain = item.getAttribute('data-domain');
+        if (domain === 'all' || itemDomain === domain || itemDomain.includes(domain)) {
+          item.style.display = '';
+          item.style.opacity = '1';
+          item.style.transform = 'scale(1)';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+ * 3. 3D SPOTLIGHT / HOVER EFFECT
+ * -------------------------------------------------------------------------- */
+function initSpotlightEffect() {
+  const cards = document.querySelectorAll('.spotlight-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+ * 4. THEME TOGGLER (Dark / Light)
+ * -------------------------------------------------------------------------- */
+function initTheme() {
+  const toggleBtn = document.getElementById('theme-toggle');
+  const toggleMobile = document.getElementById('theme-toggle-mobile');
+  const html = document.documentElement;
+
+  const saved = localStorage.getItem('theme');
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+  if (saved === 'light' || (!saved && prefersLight)) {
+    html.classList.add('light');
+  }
+
+  function toggle() {
+    html.classList.toggle('light');
+    const isLight = html.classList.contains('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    showToast(isLight ? 'Switched to Light mode' : 'Switched to Dark mode');
+  }
+
+  if (toggleBtn) toggleBtn.addEventListener('click', toggle);
+  if (toggleMobile) toggleMobile.addEventListener('click', toggle);
+}
+
+/* --------------------------------------------------------------------------
+ * 5. INTERACTIVE SERVICE INQUIRY (WhatsApp / Email)
+ * -------------------------------------------------------------------------- */
+function initServiceInquiry() {
+  const chips = document.querySelectorAll('.service-chip');
+  const waBtn = document.getElementById('quick-inquiry-wa');
+  const mailBtn = document.getElementById('quick-inquiry-mail');
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chip.classList.toggle('active-chip');
+      chip.classList.toggle('bg-cyan-500/20');
+      chip.classList.toggle('border-cyan-400');
+      chip.classList.toggle('text-cyan-300');
+    });
+  });
+
+  function getSelectedServices() {
+    const selected = [];
+    document.querySelectorAll('.service-chip.active-chip').forEach(c => {
+      selected.push(c.textContent.trim());
+    });
+    return selected.length ? selected : ['General Technical Consultation'];
+  }
+
+  if (waBtn) {
+    waBtn.addEventListener('click', () => {
+      const services = getSelectedServices().join(', ');
+      const msg = `Hello Muhammad Usman, I reviewed your portfolio and would like to discuss: ${services}.`;
+      const url = `https://wa.me/923325145099?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+      showToast('Opening WhatsApp chat...');
+    });
+  }
+
+  if (mailBtn) {
+    mailBtn.addEventListener('click', () => {
+      const services = getSelectedServices().join(', ');
+      const sub = encodeURIComponent('Technical Service Inquiry - ' + services);
+      const body = encodeURIComponent(`Hi Muhammad Usman,\n\nI am contacting you regarding: ${services}.\n\nPlease let me know your availability for a call.\n\nThank you.`);
+      window.location.href = `mailto:usmanwadood090@gmail.com?subject=${sub}&body=${body}`;
+      showToast('Opening Email draft...');
+    });
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * 6. ONE-CLICK COPY ACTIONS
+ * -------------------------------------------------------------------------- */
+function initCopyActions() {
+  document.querySelectorAll('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const val = btn.getAttribute('data-copy');
+      navigator.clipboard.writeText(val).then(() => {
+        showToast(`Copied: ${val}`);
+      });
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+ * 7. CONTACT FORM
+ * -------------------------------------------------------------------------- */
+function initContactForm() {
+  const form = document.getElementById('quick-contact-form');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+
+    if (!name || !email || !message) {
+      showToast('Please complete all fields.', 'error');
+      return;
     }
 
-    // Scroll spy for active menu link
-    let currentSectionId = '';
-    const scrollPosition = window.scrollY + 120;
+    const sub = encodeURIComponent(`Portfolio Message from ${name}`);
+    const body = encodeURIComponent(`Sender: ${name} (${email})\n\nMessage:\n${message}`);
+    window.location.href = `mailto:usmanwadood090@gmail.com?subject=${sub}&body=${body}`;
+    showToast('Redirecting to your email client...');
+    form.reset();
+  });
+}
 
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      if (scrollPosition >= top && scrollPosition < top + height) {
-        currentSectionId = section.getAttribute('id');
+/* --------------------------------------------------------------------------
+ * 8. SCROLL & NAV BEHAVIOR
+ * -------------------------------------------------------------------------- */
+function initScrollEffects() {
+  const nav = document.getElementById('main-nav');
+  const links = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav.classList.add('shadow-xl', 'bg-opacity-95');
+    } else {
+      nav.classList.remove('shadow-xl', 'bg-opacity-95');
+    }
+
+    let current = '';
+    const scrollPos = window.scrollY + 140;
+
+    sections.forEach(sec => {
+      if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+        current = sec.getAttribute('id');
       }
     });
 
-    navLinks.forEach(link => {
-      link.classList.remove('text-cyan-400', 'font-semibold');
-      if (link.getAttribute('href') === `#${currentSectionId}`) {
-        link.classList.add('text-cyan-400', 'font-semibold');
+    links.forEach(l => {
+      if (l.getAttribute('href') === `#${current}`) {
+        l.classList.add('text-cyan-400', 'font-semibold');
+      } else {
+        l.classList.remove('text-cyan-400', 'font-semibold');
       }
     });
   });
 
   // Mobile menu toggle
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+  const mobBtn = document.getElementById('mobile-menu-btn');
+  const mobMenu = document.getElementById('mobile-menu');
+  if (mobBtn && mobMenu) {
+    mobBtn.addEventListener('click', () => {
+      mobMenu.classList.toggle('hidden');
     });
-
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-  }
-}
-
-/* --------------------------------------------------------------------------
- * 3. SKILLS CATEGORY FILTERING
- * -------------------------------------------------------------------------- */
-function initSkillFiltering() {
-  const filterBtns = document.querySelectorAll('.skill-filter-btn');
-  const skillCards = document.querySelectorAll('.skill-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => {
-        b.classList.remove('bg-cyan-500', 'text-white', 'shadow-md');
-        b.classList.add('bg-slate-800/60', 'text-slate-300');
-      });
-
-      btn.classList.add('bg-cyan-500', 'text-white', 'shadow-md');
-      btn.classList.remove('bg-slate-800/60', 'text-slate-300');
-
-      const filter = btn.getAttribute('data-filter');
-
-      skillCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter || category.includes(filter)) {
-          card.style.display = 'flex';
-          card.classList.add('animate-fadeIn');
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-}
-
-/* --------------------------------------------------------------------------
- * 4. INTERACTIVE SERVICE ESTIMATOR / INQUIRY BUILDER
- * -------------------------------------------------------------------------- */
-function initServiceEstimator() {
-  const checkboxes = document.querySelectorAll('.service-checkbox');
-  const locationSelect = document.getElementById('inquiry-location');
-  const notesInput = document.getElementById('inquiry-notes');
-  const whatsappSendBtn = document.getElementById('estimator-whatsapp-btn');
-  const emailSendBtn = document.getElementById('estimator-email-btn');
-
-  function generateInquiryMessage() {
-    const selectedServices = [];
-    checkboxes.forEach(cb => {
-      if (cb.checked) {
-        selectedServices.push(cb.value);
-      }
-    });
-
-    const location = locationSelect ? locationSelect.value : 'Peshawar';
-    const notes = notesInput && notesInput.value.trim() ? notesInput.value.trim() : 'None provided';
-
-    let message = `Hello Muhammad Usman,\n\nI visited your portfolio and would like to discuss an opportunity / project:\n`;
-    message += `• Location: ${location}\n`;
-    message += `• Required Services:\n  - ${selectedServices.length > 0 ? selectedServices.join('\n  - ') : 'General Technical Inquiry'}\n`;
-    message += `• Project Details: ${notes}\n\nLooking forward to hearing from you!`;
-
-    return message;
-  }
-
-  if (whatsappSendBtn) {
-    whatsappSendBtn.addEventListener('click', () => {
-      const text = generateInquiryMessage();
-      const phone = '923325145099';
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-      window.open(url, '_blank');
-      showToast('Opening WhatsApp with your request...', 'success');
-    });
-  }
-
-  if (emailSendBtn) {
-    emailSendBtn.addEventListener('click', () => {
-      const text = generateInquiryMessage();
-      const email = 'usmanwadood090@gmail.com';
-      const subject = encodeURIComponent('Project & Technical Service Inquiry for Muhammad Usman');
-      const body = encodeURIComponent(text);
-      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-      showToast('Drafting inquiry email...', 'success');
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobMenu.classList.add('hidden'));
     });
   }
 }
 
 /* --------------------------------------------------------------------------
- * 5. CONTACT FORM & DIRECT ACTIONS
+ * 9. TOAST NOTIFICATION UTILITY
  * -------------------------------------------------------------------------- */
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  const copyEmailBtn = document.getElementById('copy-email-btn');
-  const copyPhoneBtn = document.getElementById('copy-phone-btn');
-
-  if (copyEmailBtn) {
-    copyEmailBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText('usmanwadood090@gmail.com').then(() => {
-        showToast('Email copied to clipboard!', 'success');
-      });
-    });
-  }
-
-  if (copyPhoneBtn) {
-    copyPhoneBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText('+92 3325145099').then(() => {
-        showToast('Phone number copied to clipboard!', 'success');
-      });
-    });
-  }
-
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('form-name').value.trim();
-      const email = document.getElementById('form-email').value.trim();
-      const subject = document.getElementById('form-subject').value.trim() || 'New Message from Portfolio';
-      const message = document.getElementById('form-message').value.trim();
-
-      if (!name || !email || !message) {
-        showToast('Please fill in all required fields.', 'error');
-        return;
-      }
-
-      const emailBody = `Sender Name: ${name}\nSender Email: ${email}\n\nMessage:\n${message}`;
-      const mailtoUrl = `mailto:usmanwadood090@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-
-      window.location.href = mailtoUrl;
-      showToast('Opening your email client to send message...', 'success');
-      form.reset();
-    });
-  }
-}
-
-/* --------------------------------------------------------------------------
- * 6. TOAST NOTIFICATION UTILITY
- * -------------------------------------------------------------------------- */
-function showToast(message, type = 'info') {
-  let container = document.getElementById('toast-container');
-  if (!container) {
-    container = document.createElement('div');
-    container.id = 'toast-container';
-    document.body.appendChild(container);
+function showToast(text, type = 'info') {
+  let box = document.getElementById('toast-container');
+  if (!box) {
+    box = document.createElement('div');
+    box.id = 'toast-container';
+    document.body.appendChild(box);
   }
 
   const toast = document.createElement('div');
   toast.className = 'toast';
-
-  let iconSvg = '';
-  if (type === 'success') {
-    iconSvg = '<svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-  } else if (type === 'error') {
-    iconSvg = '<svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
-  } else {
-    iconSvg = '<svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
-  }
-
   toast.innerHTML = `
-    ${iconSvg}
-    <span class="text-sm font-medium">${message}</span>
+    <span class="w-2 h-2 rounded-full ${type === 'error' ? 'bg-red-400' : 'bg-cyan-400'} animate-pulse"></span>
+    <span class="text-xs sm:text-sm font-medium">${text}</span>
   `;
 
-  container.appendChild(toast);
+  box.appendChild(toast);
 
   setTimeout(() => {
     toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
+    toast.style.transform = 'translateY(-10px)';
     toast.style.transition = 'all 0.3s ease';
-    setTimeout(() => {
-      toast.remove();
-    }, 300);
-  }, 3500);
+    setTimeout(() => toast.remove(), 300);
+  }, 3200);
 }
-
-/* --------------------------------------------------------------------------
- * 7. SCROLL ANIMATIONS
- * -------------------------------------------------------------------------- */
-function initScrollAnimations() {
-  const animatedElements = document.querySelectorAll('.fade-in-on-scroll');
-  
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-y-0');
-          entry.target.classList.remove('opacity-0', 'translate-y-6');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    animatedElements.forEach(el => {
-      el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-6');
-      observer.observe(el);
-    });
-  }
-}
-

@@ -92,3 +92,4 @@ This portfolio is 100% static and requires zero build steps or database configur
 - **Email**: [usmanwadood090@gmail.com](mailto:usmanwadood090@gmail.com)
 - **Phone / WhatsApp**: [+92 3325145099](https://wa.me/923325145099)
 - **Location**: Peshawar, Khyber Pakhtunkhwa, Pakistan
+
