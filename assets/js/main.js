@@ -1,5 +1,5 @@
 /**
- * Muhammad Usman - Portfolio Enhanced JavaScript
+ * Muhammad Usman - Portfolio Enhanced JavaScript (Dark Theme)
  * Features: Typewriter, Counter Animation, Domain Toggle, Interactive Filter,
  * Smooth Scroll, Back-to-Top, Toast Notifications, Clipboard Feedback
  */
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.lucide.createIcons();
   }
 
-  initTheme();
   initNavigation();
   initTypewriter();
   initCounterAnimation();
@@ -23,35 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
- * 1. THEME TOGGLER (Dark / Light)
- * -------------------------------------------------------------------------- */
-function initTheme() {
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
-  const html = document.documentElement;
-
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-
-  if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
-    html.classList.add('light');
-  } else {
-    html.classList.remove('light');
-  }
-
-  function toggleTheme() {
-    html.classList.toggle('light');
-    const currentTheme = html.classList.contains('light') ? 'light' : 'dark';
-    localStorage.setItem('theme', currentTheme);
-    showToast(`Switched to ${currentTheme} mode`, 'info');
-  }
-
-  if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
-  if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
-}
-
-/* --------------------------------------------------------------------------
- * 2. NAVIGATION & MOBILE MENU
+ * 1. NAVIGATION & MOBILE MENU
  * -------------------------------------------------------------------------- */
 function initNavigation() {
   const navbar = document.getElementById('main-nav');
@@ -70,7 +41,7 @@ function initNavigation() {
 
     // Scroll spy
     let currentSectionId = '';
-    const scrollPosition = window.scrollY + 140;
+    const scrollPosition = window.scrollY + 120;
 
     sections.forEach(section => {
       const top = section.offsetTop;
@@ -102,7 +73,7 @@ function initNavigation() {
 }
 
 /* --------------------------------------------------------------------------
- * 3. TYPEWRITER ANIMATION (Hero Section)
+ * 2. TYPEWRITER ANIMATION (Hero Section)
  * -------------------------------------------------------------------------- */
 function initTypewriter() {
   const target = document.getElementById('typewriter-text');
@@ -152,7 +123,7 @@ function initTypewriter() {
 }
 
 /* --------------------------------------------------------------------------
- * 4. ANIMATED STATS COUNTER
+ * 3. ANIMATED STATS COUNTER
  * -------------------------------------------------------------------------- */
 function initCounterAnimation() {
   const counters = document.querySelectorAll('.stat-counter');
@@ -167,7 +138,7 @@ function initCounterAnimation() {
           const suffix = counter.getAttribute('data-suffix') || '';
           const isDecimal = target % 1 !== 0;
           let current = 0;
-          const duration = 1500;
+          const duration = 1400;
           const stepTime = 30;
           const totalSteps = duration / stepTime;
           const increment = target / totalSteps;
@@ -184,7 +155,7 @@ function initCounterAnimation() {
         });
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.25 });
 
   const statsSection = document.getElementById('stats-strip');
   if (statsSection) {
@@ -193,7 +164,7 @@ function initCounterAnimation() {
 }
 
 /* --------------------------------------------------------------------------
- * 5. INTERACTIVE DOMAIN SWITCHER (Surveillance vs Media)
+ * 4. INTERACTIVE DOMAIN SWITCHER (Surveillance vs Media)
  * -------------------------------------------------------------------------- */
 function initDomainToggle() {
   const toggleBtns = document.querySelectorAll('.domain-toggle-btn');
@@ -228,7 +199,7 @@ function initDomainToggle() {
 }
 
 /* --------------------------------------------------------------------------
- * 6. SKILLS CATEGORY FILTERING
+ * 5. SKILLS CATEGORY FILTERING
  * -------------------------------------------------------------------------- */
 function initSkillFiltering() {
   const filterBtns = document.querySelectorAll('.skill-filter-btn');
@@ -260,7 +231,7 @@ function initSkillFiltering() {
 }
 
 /* --------------------------------------------------------------------------
- * 7. INTERACTIVE SERVICE ESTIMATOR / INQUIRY BUILDER
+ * 6. INTERACTIVE SERVICE ESTIMATOR / INQUIRY BUILDER
  * -------------------------------------------------------------------------- */
 function initServiceEstimator() {
   const checkboxes = document.querySelectorAll('.service-checkbox');
@@ -307,7 +278,7 @@ function initServiceEstimator() {
 }
 
 /* --------------------------------------------------------------------------
- * 8. CONTACT FORM & INSTANT CLIPBOARD ACTIONS
+ * 7. CONTACT FORM & INSTANT CLIPBOARD ACTIONS
  * -------------------------------------------------------------------------- */
 function initContactActions() {
   const form = document.getElementById('contact-form');
@@ -359,7 +330,7 @@ function initContactActions() {
 }
 
 /* --------------------------------------------------------------------------
- * 9. SCROLL REVEAL (IntersectionObserver)
+ * 8. SCROLL REVEAL (IntersectionObserver)
  * -------------------------------------------------------------------------- */
 function initScrollReveal() {
   const elements = document.querySelectorAll('.reveal-init');
@@ -375,20 +346,20 @@ function initScrollReveal() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
 
   elements.forEach(el => observer.observe(el));
 }
 
 /* --------------------------------------------------------------------------
- * 10. BACK TO TOP BUTTON
+ * 9. BACK TO TOP BUTTON
  * -------------------------------------------------------------------------- */
 function initBackToTop() {
   const backToTopBtn = document.getElementById('back-to-top');
   if (!backToTopBtn) return;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 350) {
+    if (window.scrollY > 300) {
       backToTopBtn.classList.add('visible');
     } else {
       backToTopBtn.classList.remove('visible');
@@ -401,7 +372,7 @@ function initBackToTop() {
 }
 
 /* --------------------------------------------------------------------------
- * 11. TOAST NOTIFICATIONS
+ * 10. TOAST NOTIFICATIONS
  * -------------------------------------------------------------------------- */
 function showToast(message, type = 'info') {
   let container = document.getElementById('toast-container');
@@ -432,8 +403,8 @@ function showToast(message, type = 'info') {
 
   setTimeout(() => {
     toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
+    toast.style.transform = 'translateY(8px)';
     toast.style.transition = 'all 0.25s ease';
     setTimeout(() => toast.remove(), 250);
-  }, 3000);
+  }, 2800);
 }
