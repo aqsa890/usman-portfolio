@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Usman | CCTV Specialist & Media Associate</title>
-  <meta name="description" content="Muhammad Usman - CCTV Technician & Media Operations Associate. Specialized in surveillance networks, IP cameras, Cat6 cabling, and live broadcast production.">
-  <meta name="keywords" content="Muhammad Usman, CCTV Technician, Media Associate, Surveillance, IP Camera, Cat6, Zameen.com, Quartz Center, Peshawar">
-  
-  <!-- OpenGraph -->
-  <meta property="og:title" content="Muhammad Usman | CCTV & Media Specialist">
-  <meta property="og:description" content="CCTV Systems & Media Operations Specialist based in Peshawar, Pakistan.">
+  <title>Muhammad Usman | Media Operations Associate & CCTV Surveillance Specialist</title>
+  <meta name="description" content="Portfolio of Muhammad Usman - CCTV Technician & Media Associate experienced in IP surveillance, NVR/DVR setups, Cat6 structured cabling, and live broadcast operations.">
+  <meta name="keywords" content="Muhammad Usman, CCTV Technician, Media Associate, Surveillance Systems, Cat6 Cabling, Zameen.com, Quartz Center, Peshawar">
+  <meta name="author" content="Muhammad Usman">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Muhammad Usman | Media & CCTV Specialist">
+  <meta property="og:description" content="Specialist in electronic surveillance, IP networks, and broadcast media operations.">
+  <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/usman-profile.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2300f2fe'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='46' font-weight='900' fill='%23070a12'>MU</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230ea5e9'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='48' font-weight='bold' fill='white'>MU</text></svg>">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,20 +27,13 @@
           colors: {
             brand: {
               400: '#38bdf8',
-              500: '#00f2fe',
+              500: '#0ea5e9',
               600: '#0284c7',
-            },
-            dark: {
-              950: '#070a12',
-              900: '#0d121f',
-              800: '#161e32',
-              700: '#222d4a',
             }
           },
           fontFamily: {
-            heading: ['Plus Jakarta Sans', 'sans-serif'],
-            mono: ['Space Grotesk', 'monospace'],
-            body: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
           }
         }
       }
@@ -51,391 +46,578 @@
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-[#070a12] text-slate-100 antialiased selection:bg-cyan-400 selection:text-black">
+<body class="bg-[#080c14] text-slate-100 antialiased selection:bg-cyan-500 selection:text-white transition-colors duration-300">
 
-  <!-- Background Ambience -->
-  <div class="ambient-glow-1"></div>
-  <div class="ambient-glow-2"></div>
-  <div class="cyber-grid"></div>
+  <!-- Ambient Glow & Overlay Grid -->
+  <div class="ambient-bg"></div>
+  <div class="grid-overlay"></div>
 
-  <!-- Header / Navigation Bar -->
-  <header id="main-nav" class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+  <!-- Sticky Glass Header -->
+  <header id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       
-      <!-- Logo Monogram -->
-      <a href="#hero" class="flex items-center gap-2.5 group">
-        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-cyan-400 to-emerald-400 p-[2px] transition-transform group-hover:scale-105">
-          <div class="w-full h-full bg-[#070a12] rounded-[6px] flex items-center justify-center font-mono font-bold text-sm text-cyan-300">
-            MU
+      <!-- Brand Monogram -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-sky-500 to-emerald-400 p-[2px] transition-transform duration-300 group-hover:scale-105">
+          <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+            <span class="font-heading font-extrabold text-base text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">MU</span>
           </div>
         </div>
-        <div class="leading-tight">
-          <span class="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors block">Muhammad Usman</span>
-          <span class="text-[11px] text-slate-400 block -mt-0.5">CCTV & Media Specialist</span>
+        <div>
+          <span class="text-sm sm:text-base font-bold tracking-tight block text-white group-hover:text-cyan-400 transition-colors">Muhammad Usman</span>
+          <span class="text-[11px] text-slate-400 block -mt-0.5 font-medium">CCTV & Media Specialist</span>
         </div>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-slate-300">
-        <a href="#hero" class="nav-link hover:text-cyan-400 transition-colors">Home</a>
-        <a href="#bento" class="nav-link hover:text-cyan-400 transition-colors">Experience & Skills</a>
-        <a href="#inquiry" class="nav-link hover:text-cyan-400 transition-colors">Quick Inquiry</a>
-        <a href="#contact" class="nav-link hover:text-cyan-400 transition-colors">Contact</a>
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#hero" class="desktop-nav-link text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Home</a>
+        <a href="#about" class="desktop-nav-link text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-cyan-400 transition-colors">About</a>
+        <a href="#experience" class="desktop-nav-link text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#services" class="desktop-nav-link text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Services</a>
+        <a href="#skills" class="desktop-nav-link text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#education" class="desktop-nav-link text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Education</a>
+        <a href="#contact" class="desktop-nav-link text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Contact</a>
       </nav>
 
-      <!-- Nav Actions -->
-      <div class="flex items-center gap-2.5">
+      <!-- Action Controls -->
+      <div class="hidden md:flex items-center gap-2.5">
         <!-- Theme Toggle -->
-        <button id="theme-toggle" class="p-2 rounded-lg border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-slate-700 transition-colors" title="Toggle Theme" aria-label="Toggle Theme">
+        <button id="theme-toggle" class="p-2 rounded-lg border border-slate-700/80 hover:border-cyan-500/50 text-slate-300 hover:text-cyan-400 transition-colors glass-panel" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
           <i data-lucide="sun-moon" class="w-4 h-4"></i>
         </button>
 
-        <!-- CV Button -->
-        <a href="assets/Muhammad_Usman_CV.pdf" download="Muhammad_Usman_CV.pdf" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-700 hover:border-cyan-400 text-xs font-semibold text-slate-200 hover:text-white bg-slate-800/60 transition-all">
-          <i data-lucide="file-down" class="w-3.5 h-3.5 text-cyan-400"></i>
+        <!-- Download CV Button -->
+        <a href="assets/Muhammad_Usman_CV.pdf" download="Muhammad_Usman_CV.pdf" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-700 hover:border-cyan-500/60 text-slate-200 hover:text-white bg-slate-800/60 hover:bg-slate-800 text-xs font-semibold transition-all">
+          <i data-lucide="download" class="w-3.5 h-3.5 text-cyan-400"></i>
           <span>Resume</span>
         </a>
 
-        <!-- WhatsApp CTA -->
-        <a href="https://wa.me/923325145099" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white text-xs font-bold shadow-md shadow-emerald-500/20 transition-transform active:scale-95">
+        <!-- Quick Hire CTA -->
+        <a href="https://wa.me/923325145099" target="_blank" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white text-xs font-semibold shadow-md shadow-cyan-500/20 transition-all hover:scale-[1.02]">
           <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
           <span>WhatsApp</span>
         </a>
+      </div>
 
-        <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white" aria-label="Toggle Mobile Menu">
+      <!-- Mobile Menu Buttons -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="theme-toggle-mobile" class="p-2 rounded-lg border border-slate-700 text-slate-300 hover:text-cyan-400" aria-label="Toggle Theme">
+          <i data-lucide="sun-moon" class="w-4 h-4"></i>
+        </button>
+        <button id="mobile-menu-btn" class="p-2 rounded-lg border border-slate-700 text-slate-300 hover:text-white" aria-label="Open Navigation Menu">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
 
     </div>
 
-    <!-- Mobile Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-slate-800 px-5 py-4 space-y-2 text-sm">
-      <a href="#hero" class="mobile-link block text-slate-200 py-1 hover:text-cyan-400">Home</a>
-      <a href="#bento" class="mobile-link block text-slate-200 py-1 hover:text-cyan-400">Experience & Skills</a>
-      <a href="#inquiry" class="mobile-link block text-slate-200 py-1 hover:text-cyan-400">Quick Inquiry</a>
-      <a href="#contact" class="mobile-link block text-slate-200 py-1 hover:text-cyan-400">Contact</a>
-      <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
-        <a href="assets/Muhammad_Usman_CV.pdf" download="Muhammad_Usman_CV.pdf" class="text-xs text-cyan-400 font-semibold flex items-center gap-1">
-          <i data-lucide="file-down" class="w-3.5 h-3.5"></i> Download CV
+    <!-- Mobile Off-Canvas Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-slate-800 px-5 py-4 space-y-2">
+      <a href="#hero" class="mobile-link block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1">Home</a>
+      <a href="#about" class="mobile-link block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1">About</a>
+      <a href="#experience" class="mobile-link block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1">Experience</a>
+      <a href="#services" class="mobile-link block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1">Services</a>
+      <a href="#skills" class="mobile-link block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1">Skills</a>
+      <a href="#education" class="mobile-link block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1">Education</a>
+      <a href="#contact" class="mobile-link block text-sm font-medium text-slate-300 hover:text-cyan-400 py-1">Contact</a>
+      <div class="pt-3 border-t border-slate-800 flex gap-2">
+        <a href="assets/Muhammad_Usman_CV.pdf" download="Muhammad_Usman_CV.pdf" class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg border border-slate-700 text-slate-200 bg-slate-800/80 text-xs font-semibold">
+          <i data-lucide="download" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span>Download CV</span>
         </a>
-        <a href="tel:+923325145099" class="text-xs text-emerald-400 font-semibold flex items-center gap-1">
-          <i data-lucide="phone" class="w-3.5 h-3.5"></i> Call Now
+        <a href="https://wa.me/923325145099" target="_blank" class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-emerald-600 text-white text-xs font-semibold">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+          <span>WhatsApp</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Compact Hero Section (Short, Punchy, Animated) -->
-  <section id="hero" class="relative pt-24 pb-10 sm:pt-28 sm:pb-14 overflow-hidden z-10">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-10">
+  <!-- SHORT, COMPACT & EYE-CATCHING HERO SECTION -->
+  <section id="hero" class="relative pt-24 pb-10 sm:pt-28 sm:pb-14 md:pt-32 md:pb-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
         
-        <!-- Left: Compact Bio & Animated Role -->
-        <div class="flex-1 text-center md:text-left space-y-4">
+        <!-- Left Content (Compact, Punchy) -->
+        <div class="lg:col-span-7 space-y-4 text-center lg:text-left">
           
-          <!-- Live Status Badge -->
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/90 border border-slate-700/80 text-[11px] font-medium text-slate-300">
-            <span class="live-pulse"></span>
-            <span>Available for On-Site Deployments & Contracts</span>
+          <!-- Compact Status Pill -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-700 text-xs font-medium text-slate-300">
+            <span class="status-dot"></span>
+            <span>Available for Full-Time Roles & On-Site Projects</span>
+            <span class="text-slate-500">&bull;</span>
+            <span class="text-cyan-400 font-semibold">Peshawar, PK</span>
           </div>
 
-          <!-- Name & Animated Dynamic Role -->
+          <!-- Main Name & Dynamic Typewriter -->
           <div class="space-y-1">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white">
-              Muhammad <span class="neon-gradient">Usman</span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              Muhammad <span class="text-gradient-cyan">Usman</span>
             </h1>
-            <div class="text-base sm:text-lg md:text-xl font-semibold text-slate-300 flex items-center justify-center md:justify-start min-h-[32px]">
-              <span class="text-slate-400 mr-2">I build:</span>
-              <span id="role-rotator" class="text-cyan-400 font-mono">CCTV Surveillance Systems</span>
-              <span class="typing-cursor"></span>
+            <div class="text-base sm:text-xl font-semibold text-slate-300 flex items-center justify-center lg:justify-start min-h-[32px]">
+              <span id="typewriter-text" class="text-cyan-400"></span>
+              <span class="typewriter-cursor">|</span>
             </div>
           </div>
 
-          <!-- 1-Sentence High-Impact Pitch -->
-          <p class="text-slate-400 text-xs sm:text-sm max-w-lg leading-relaxed mx-auto md:mx-0">
-            Over 5 years deploying IP/NVR camera networks, structured Cat6 cabling, and live broadcast audiovisual rigs with proven track record at <strong class="text-slate-200">Quartz Center</strong> & <strong class="text-slate-200">Zameen.com</strong>.
+          <!-- Balanced, Medium-Length Bio (Not too short, not wordy) -->
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Specialist in IP surveillance systems, DVR/NVR networks, and live audiovisual media operations. Combining low-voltage electrical engineering foundations with corporate broadcast experience at <strong>Quartz Center</strong> and <strong>Zameen.com</strong>.
           </p>
 
-          <!-- Quick Fact Pills -->
-          <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-1 text-xs">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-800 text-slate-300">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cyan-400"></i> Peshawar, PK
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-800 text-slate-300">
-              <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-400"></i> 100+ CCTV Nodes
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-800 text-slate-300">
-              <i data-lucide="award" class="w-3.5 h-3.5 text-sky-400"></i> DAE (Civil-Electric) & BS
-            </span>
-          </div>
-
-          <!-- Primary Hero Actions -->
-          <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
-            <a href="https://wa.me/923325145099" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-cyan-500/25 transition-transform active:scale-95">
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
+            <a href="https://wa.me/923325145099" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white font-semibold text-xs sm:text-sm shadow-md shadow-cyan-500/20 transition-all hover:scale-[1.02]">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
-              <span>Chat on WhatsApp</span>
+              <span>WhatsApp Chat</span>
             </a>
-            <a href="tel:+923325145099" class="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-700 hover:border-slate-500 bg-slate-900/80 hover:bg-slate-800 text-xs sm:text-sm font-semibold text-slate-200 transition-all">
-              <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
-              <span>+92 3325145099</span>
+            <a href="assets/Muhammad_Usman_CV.pdf" download="Muhammad_Usman_CV.pdf" class="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-700 hover:border-cyan-500 text-slate-200 hover:text-white bg-slate-800/80 text-xs sm:text-sm font-semibold transition-all">
+              <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
+              <span>Download CV</span>
             </a>
-            <a href="assets/Muhammad_Usman_CV.pdf" download="Muhammad_Usman_CV.pdf" class="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-slate-800 hover:border-cyan-400/50 bg-slate-900/60 text-xs text-slate-300 hover:text-white transition-colors" title="Download Resume">
-              <i data-lucide="download" class="w-3.5 h-3.5 text-cyan-400"></i>
-              <span>CV PDF</span>
+            <a href="#experience" class="flex items-center gap-1.5 px-4 py-2.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">
+              <span>View Experience</span>
+              <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <!-- Quick Contact Strip -->
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs text-slate-300">
+            <span class="flex items-center gap-1.5 bg-slate-900/70 border border-slate-800 px-3 py-1.5 rounded-lg">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cyan-400"></i>
+              Peshawar, Pakistan
+            </span>
+            <a href="tel:+923325145099" class="flex items-center gap-1.5 bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 px-3 py-1.5 rounded-lg transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-400"></i>
+              +92 3325145099
+            </a>
+            <a href="mailto:usmanwadood090@gmail.com" class="flex items-center gap-1.5 bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 px-3 py-1.5 rounded-lg transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-sky-400"></i>
+              usmanwadood090@gmail.com
             </a>
           </div>
 
         </div>
 
-        <!-- Right: Animated Compact Avatar Badge -->
-        <div class="relative shrink-0">
-          <div class="avatar-halo">
-            <div class="relative z-10 w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-2 border-slate-800 bg-slate-900 shadow-2xl">
-              <img src="assets/images/usman-profile.jpg" alt="Muhammad Usman - CCTV & Media Associate" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
-            </div>
-          </div>
-
-          <!-- Floating Badges -->
-          <div class="absolute -bottom-2 -left-2 bg-slate-900/90 border border-cyan-500/40 px-2.5 py-1 rounded-lg shadow-lg flex items-center gap-1.5 z-20 backdrop-blur-md">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-            <span class="text-[11px] font-bold text-white">CCTV & NVR</span>
-          </div>
-
-          <div class="absolute -top-2 -right-2 bg-slate-900/90 border border-emerald-500/40 px-2.5 py-1 rounded-lg shadow-lg flex items-center gap-1.5 z-20 backdrop-blur-md">
-            <i data-lucide="radio" class="w-3 h-3 text-emerald-400"></i>
-            <span class="text-[11px] font-bold text-white">Media Ops</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Animated Tech Marquee / Infinite Ticker -->
-  <div class="border-y border-slate-800/80 bg-slate-950/60 py-2.5 overflow-hidden relative z-10">
-    <div class="marquee-track flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-slate-400">
-      <span class="flex items-center gap-1.5 text-cyan-300"><i data-lucide="video" class="w-3.5 h-3.5"></i> IP & NVR Cameras</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-emerald-300"><i data-lucide="cable" class="w-3.5 h-3.5"></i> Cat6 Cabling</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-sky-300"><i data-lucide="radio" class="w-3.5 h-3.5"></i> Live Event AV</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-indigo-300"><i data-lucide="hard-drive" class="w-3.5 h-3.5"></i> DVR / RAID Storage</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-teal-300"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Quartz Center</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-purple-300"><i data-lucide="camera" class="w-3.5 h-3.5"></i> Zameen.com Alum</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-cyan-300"><i data-lucide="router" class="w-3.5 h-3.5"></i> TCP/IP Networking</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-emerald-300"><i data-lucide="sliders" class="w-3.5 h-3.5"></i> Audio Mixing</span>
-      <span class="text-slate-600">&bull;</span>
-      <!-- Duplicate for seamless infinite loop -->
-      <span class="flex items-center gap-1.5 text-cyan-300"><i data-lucide="video" class="w-3.5 h-3.5"></i> IP & NVR Cameras</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-emerald-300"><i data-lucide="cable" class="w-3.5 h-3.5"></i> Cat6 Cabling</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-sky-300"><i data-lucide="radio" class="w-3.5 h-3.5"></i> Live Event AV</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-indigo-300"><i data-lucide="hard-drive" class="w-3.5 h-3.5"></i> DVR / RAID Storage</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-teal-300"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Quartz Center</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-purple-300"><i data-lucide="camera" class="w-3.5 h-3.5"></i> Zameen.com Alum</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-cyan-300"><i data-lucide="router" class="w-3.5 h-3.5"></i> TCP/IP Networking</span>
-      <span class="text-slate-600">&bull;</span>
-      <span class="flex items-center gap-1.5 text-emerald-300"><i data-lucide="sliders" class="w-3.5 h-3.5"></i> Audio Mixing</span>
-    </div>
-  </div>
-
-  <!-- Interactive Domain Filter & Modern Bento Grid -->
-  <section id="bento" class="py-14 sm:py-16 relative z-10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      
-      <!-- Filter Bar -->
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
-        <div>
-          <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-            <span>Career & Core Capabilities</span>
-            <span class="text-cyan-400">&bull;</span>
-            <span class="text-xs font-mono text-slate-400 uppercase tracking-widest">Bento Matrix</span>
-          </h2>
-          <p class="text-xs text-slate-400">Click a filter to emphasize domain or explore interactive cards.</p>
-        </div>
-
-        <!-- Domain Pills -->
-        <div class="inline-flex p-1 rounded-xl bg-slate-900 border border-slate-800">
-          <button class="domain-pill px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-cyan-500 text-white shadow-md shadow-cyan-500/25" data-target="all">
-            All Domains
-          </button>
-          <button class="domain-pill px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white" data-target="cctv">
-            CCTV & Security
-          </button>
-          <button class="domain-pill px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white" data-target="media">
-            Media & Broadcast
-          </button>
-        </div>
-      </div>
-
-      <!-- Bento Grid (3 Columns) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        
-        <!-- Bento 1: Experience - Quartz Center (CCTV) -->
-        <div class="glass-card spotlight-card p-6 md:col-span-2 flex flex-col justify-between border-l-4 border-l-cyan-400" data-domain="cctv">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400"><i data-lucide="video" class="w-4 h-4"></i></span>
-                <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">2024 &ndash; Present</span>
-              </div>
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-cyan-950 text-cyan-300 border border-cyan-800">CCTV Technician</span>
-            </div>
-
-            <div>
-              <h3 class="text-xl font-bold text-white">Quartz Center</h3>
-              <p class="text-xs text-slate-400 mt-0.5">Surveillance Systems Engineering & Network Maintenance</p>
-            </div>
-
-            <!-- Bulleted Highlights -->
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300 pt-1">
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i>
-                <span>IP camera layout, mounting, lens focus & calibration</span>
-              </li>
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i>
-                <span>DVR/NVR multi-channel storage, RAID & remote mobile view</span>
-              </li>
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i>
-                <span>Cat5e / Cat6 structured cabling, RJ45 termination & testing</span>
-              </li>
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i>
-                <span>Rapid fault diagnostics & preventative 24/7 security upkeep</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-800/80 mt-4 text-[11px]">
-            <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300">IP Cameras</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300">DVR / NVR</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300">PoE Switches</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300">Cat6 Cabling</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300">Remote Cloud Surveillance</span>
-          </div>
-        </div>
-
-        <!-- Bento 2: Quick Metrics Card -->
-        <div class="glass-card spotlight-card p-6 flex flex-col justify-between" data-domain="cctv media">
-          <div class="space-y-4">
-            <span class="text-xs font-mono uppercase tracking-wider text-slate-400">Technical Impact</span>
+        <!-- Right Hero Visual (Compact, Rotating Aura, Floating Badges) -->
+        <div class="lg:col-span-5 flex justify-center relative">
+          <div class="relative w-64 sm:w-72 md:w-80">
             
-            <div class="space-y-3">
-              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                <span class="text-xs text-slate-400">Experience</span>
-                <span class="text-lg font-black text-cyan-400">5+ Years</span>
-              </div>
-              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                <span class="text-xs text-slate-400">Surveillance Nodes</span>
-                <span class="text-lg font-black text-emerald-400">100+ CCTV</span>
-              </div>
-              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                <span class="text-xs text-slate-400">Live Media Events</span>
-                <span class="text-lg font-black text-sky-400">50+ Sets</span>
+            <!-- Rotating Aura Border -->
+            <div class="portrait-aura mx-auto">
+              <div class="relative z-10 w-52 h-52 sm:w-60 sm:h-60 md:w-64 md:h-64 mx-auto rounded-full p-1.5 bg-gradient-to-tr from-cyan-500 via-sky-400 to-emerald-400 shadow-xl">
+                <div class="w-full h-full rounded-full overflow-hidden bg-slate-950 border-2 border-slate-900">
+                  <img src="assets/images/usman-profile.jpg" alt="Muhammad Usman Portrait" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" loading="eager">
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="pt-3 text-[11px] text-slate-400 flex items-center gap-1.5">
-            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
-            <span>Zero downtime track record on live setups</span>
+            <!-- Floating Badge 1: CCTV (Animated) -->
+            <div class="glass-panel animate-float-1 absolute -bottom-2 -left-2 sm:-left-4 px-3.5 py-2 rounded-xl flex items-center gap-2.5 shadow-lg z-20 border border-cyan-500/40">
+              <div class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+              </div>
+              <div class="leading-tight">
+                <p class="text-[10px] text-slate-400 font-medium">Surveillance Ops</p>
+                <p class="text-xs font-bold text-white">100+ CCTV Nodes</p>
+              </div>
+            </div>
+
+            <!-- Floating Badge 2: Media (Animated) -->
+            <div class="glass-panel animate-float-2 absolute -top-2 -right-2 sm:-right-4 px-3.5 py-2 rounded-xl flex items-center gap-2.5 shadow-lg z-20 border border-emerald-500/40">
+              <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                <i data-lucide="radio" class="w-4 h-4"></i>
+              </div>
+              <div class="leading-tight">
+                <p class="text-[10px] text-slate-400 font-medium">Broadcast & Events</p>
+                <p class="text-xs font-bold text-white">50+ Media Sets</p>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- Bento 3: Experience - Zameen.com (Media) -->
-        <div class="glass-card spotlight-card p-6 md:col-span-2 flex flex-col justify-between border-l-4 border-l-emerald-400" data-domain="media">
+      </div>
+    </div>
+  </section>
+
+  <!-- ANIMATED METRICS STRIP -->
+  <section id="stats-strip" class="py-6 sm:py-8 border-y border-slate-800/80 bg-slate-900/40 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center shrink-0">
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xl sm:text-2xl font-extrabold text-white stat-counter" data-target="5" data-suffix="+">0</div>
+            <div class="text-[11px] sm:text-xs text-slate-400">Years Experience</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0">
+            <i data-lucide="video" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xl sm:text-2xl font-extrabold text-white stat-counter" data-target="100" data-suffix="+">0</div>
+            <div class="text-[11px] sm:text-xs text-slate-400">CCTV Deployments</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center shrink-0">
+            <i data-lucide="camera" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xl sm:text-2xl font-extrabold text-white stat-counter" data-target="50" data-suffix="+">0</div>
+            <div class="text-[11px] sm:text-xs text-slate-400">Live Media Events</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center shrink-0">
+            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xl sm:text-2xl font-extrabold text-white stat-counter" data-target="99.9" data-suffix="%">0</div>
+            <div class="text-[11px] sm:text-xs text-slate-400">Surveillance Uptime</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE DOMAIN SWITCHER (Surveillance vs Media Showcase) -->
+  <section class="py-12 sm:py-16 relative z-10 reveal-init">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
+        <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Dual Technical Expertise</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Explore by <span class="text-gradient-cyan">Specialization</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Click below to toggle between my two primary areas of technical mastery:
+        </p>
+        
+        <!-- Toggle Switch -->
+        <div class="inline-flex p-1.5 rounded-2xl bg-slate-900 border border-slate-800 gap-1.5 mt-3 shadow-inner">
+          <button class="domain-toggle-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-cyan-500 text-white shadow-md flex items-center gap-2" data-domain="surveillance">
+            <i data-lucide="video" class="w-4 h-4"></i>
+            <span>CCTV & Surveillance Infrastructure</span>
+          </button>
+          <button class="domain-toggle-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:text-white flex items-center gap-2" data-domain="media">
+            <i data-lucide="radio" class="w-4 h-4"></i>
+            <span>Media Operations & Live AV</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Domain 1: Surveillance Panel -->
+      <div id="domain-surveillance" class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800/80">
+          <div>
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400"></i>
+              <span>Electronic Security & Surveillance Systems</span>
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">
+              Field-tested experience at <strong>Quartz Center</strong> delivering end-to-end IP video protection.
+            </p>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 w-fit">
+            Quartz Center (2024 – Present)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 interactive-card">
+            <i data-lucide="camera" class="w-5 h-5 text-cyan-400 mb-2"></i>
+            <h4 class="font-bold text-white text-sm mb-1">IP & Analog Cameras</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Mounting, lens calibration, night vision tuning, motion zones, and high-definition IP camera channel routing.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 interactive-card">
+            <i data-lucide="hard-drive" class="w-5 h-5 text-cyan-400 mb-2"></i>
+            <h4 class="font-bold text-white text-sm mb-1">DVR & NVR Storage</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              HDD RAID calculation, multi-stream recording schedules, frame-rate tuning, and continuous backup retention.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 interactive-card">
+            <i data-lucide="smartphone" class="w-5 h-5 text-cyan-400 mb-2"></i>
+            <h4 class="font-bold text-white text-sm mb-1">Remote Access & Cloud</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Configuring mobile and desktop surveillance clients with secure P2P and DDNS remote streaming.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 pt-2">
+          <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-medium">Cat6 Structured Cabling</span>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-medium">PoE Switches</span>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-medium">TCP/IP Networking</span>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-medium">Fault Diagnostics</span>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-medium">Preventative Maintenance</span>
+        </div>
+      </div>
+
+      <!-- Domain 2: Media Operations Panel (Hidden by default) -->
+      <div id="domain-media" class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6 hidden">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800/80">
+          <div>
+            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="radio" class="w-5 h-5 text-emerald-400"></i>
+              <span>Audiovisual Production & Broadcast Operations</span>
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">
+              Multi-year track record at <strong>Zameen.com</strong> managing corporate broadcasts, video sets, and events.
+            </p>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-950/80 text-emerald-300 border border-emerald-800/60 w-fit">
+            Zameen.com (2019 – 2026)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 interactive-card">
+            <i data-lucide="video" class="w-5 h-5 text-emerald-400 mb-2"></i>
+            <h4 class="font-bold text-white text-sm mb-1">Live Event AV Operations</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Technical operations for corporate expos, seminars, stage sound engineering, and multi-camera live streams.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 interactive-card">
+            <i data-lucide="mic" class="w-5 h-5 text-emerald-400 mb-2"></i>
+            <h4 class="font-bold text-white text-sm mb-1">Audio & Lighting Rigs</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Wireless microphone calibration, audio-to-video sync, acoustic monitoring, and balanced stage lighting.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 interactive-card">
+            <i data-lucide="film" class="w-5 h-5 text-emerald-400 mb-2"></i>
+            <h4 class="font-bold text-white text-sm mb-1">Video Recording & Editing</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              High-quality footage capture, digital asset archiving, timeline editing, and rapid turnaround delivery.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 pt-2">
+          <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-medium">Broadcast Gear</span>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-medium">Sound Mixers</span>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-medium">Multi-Camera Rigs</span>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-medium">Digital Content Management</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION (Balanced Text, High Scannability) -->
+  <section id="about" class="py-16 sm:py-20 relative z-10 reveal-init">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+        <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Profile Overview</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          About <span class="text-gradient-cyan">Muhammad Usman</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Bridging electronic security and media technology with engineering discipline.
+        </p>
+      </div>
+
+      <!-- 2-Column Balanced Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Core Bio & Strengths (7 Cols) -->
+        <div class="lg:col-span-7 glass-panel p-6 sm:p-7 rounded-2xl space-y-5">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <i data-lucide="user-check" class="w-5 h-5 text-cyan-400"></i>
+            <span>Professional Summary</span>
+          </h3>
+
+          <div class="text-slate-300 text-sm leading-relaxed space-y-3">
+            <p>
+              I am an experienced <strong>CCTV Technician</strong> and <strong>Media Associate</strong> with practical expertise in electronic surveillance networks, low-voltage cabling, and professional audiovisual operations.
+            </p>
+            <p>
+              My background integrates a <strong>Diploma of Associate Engineering (Civil-Electric)</strong> and ongoing <strong>Bachelor of Science (BS)</strong> studies. This technical groundwork enables me to diagnose electrical and network bottlenecks rapidly, configure reliable DVR/NVR servers, and maintain uninterrupted uptime.
+            </p>
+          </div>
+
+          <!-- 3 Quick Value Blocks -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-slate-800/80">
+            <div class="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800">
+              <i data-lucide="shield" class="w-4 h-4 text-cyan-400 mb-1.5"></i>
+              <h4 class="font-bold text-white text-xs mb-1">Safety First</h4>
+              <p class="text-[11px] text-slate-400">Strict low-voltage electrical safety & compliance standards.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800">
+              <i data-lucide="wrench" class="w-4 h-4 text-emerald-400 mb-1.5"></i>
+              <h4 class="font-bold text-white text-xs mb-1">Fast Diagnosis</h4>
+              <p class="text-[11px] text-slate-400">Rapid fault isolation on cameras, cables, and network switches.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800">
+              <i data-lucide="users" class="w-4 h-4 text-sky-400 mb-1.5"></i>
+              <h4 class="font-bold text-white text-xs mb-1">Team Player</h4>
+              <p class="text-[11px] text-slate-400">Proven cross-functional collaboration in high-stakes live setups.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Fast Details Card (5 Cols) -->
+        <div class="lg:col-span-5 glass-panel p-6 sm:p-7 rounded-2xl space-y-4">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+            <span>Quick Credentials</span>
+          </h3>
+
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="flex justify-between items-center py-1.5 border-b border-slate-800/80">
+              <span class="text-slate-400">Primary Role</span>
+              <span class="font-semibold text-white">CCTV Technician / Media Associate</span>
+            </div>
+            <div class="flex justify-between items-center py-1.5 border-b border-slate-800/80">
+              <span class="text-slate-400">Base Location</span>
+              <span class="font-semibold text-cyan-400">Peshawar, KP, Pakistan</span>
+            </div>
+            <div class="flex justify-between items-center py-1.5 border-b border-slate-800/80">
+              <span class="text-slate-400">Education</span>
+              <span class="font-semibold text-white">DAE (Civil-Electric) &bull; BS (In Progress)</span>
+            </div>
+            <div class="flex justify-between items-center py-1.5 border-b border-slate-800/80">
+              <span class="text-slate-400">Languages</span>
+              <span class="font-semibold text-white">English, Urdu, Pashto</span>
+            </div>
+            <div class="flex justify-between items-center py-1.5">
+              <span class="text-slate-400">Status</span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-950/80 text-emerald-300 border border-emerald-800/60">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                Open for Hiring
+              </span>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="#contact" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-800 hover:bg-cyan-600 text-white text-xs sm:text-sm font-semibold transition-colors duration-200">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Direct Contact Options</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE SECTION (Clean Cards, Clear Responsibilities) -->
+  <section id="experience" class="py-16 sm:py-20 border-t border-slate-800/80 bg-slate-900/30 relative z-10 reveal-init">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+        <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Career Record</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Work <span class="text-gradient-cyan">Experience</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Hands-on technical positions held with corporate employers and service organizations.
+        </p>
+      </div>
+
+      <!-- Experience Cards (2 Column or Stacked) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        
+        <!-- Role 1: Quartz Center -->
+        <div class="glass-panel p-6 sm:p-7 rounded-2xl border-l-4 border-l-cyan-500 interactive-card flex flex-col justify-between">
           <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400"><i data-lucide="radio" class="w-4 h-4"></i></span>
-                <span class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">2019 &ndash; 2026</span>
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-800/60">2024 – Present</span>
+                <h3 class="text-xl font-bold text-white mt-1">CCTV Technician</h3>
+                <p class="text-xs font-semibold text-cyan-400">Quartz Center</p>
               </div>
-              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Media Associate</span>
+              <div class="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0">
+                <i data-lucide="video" class="w-5 h-5"></i>
+              </div>
             </div>
 
-            <div>
-              <h3 class="text-xl font-bold text-white">Zameen.com</h3>
-              <p class="text-xs text-slate-400 mt-0.5">Pakistan's Premier Real Estate Tech Platform &bull; Media Operations</p>
-            </div>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Installed, configured, and maintained CCTV surveillance systems, including IP cameras, DVR/NVR systems, and network connections.
+            </p>
 
-            <!-- Bulleted Highlights -->
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300 pt-1">
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
-                <span>Managed multi-camera studio rigs & live streaming hardware</span>
+            <ul class="space-y-1.5 text-xs text-slate-300">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Deployed IP camera grids, PoE switches, and remote mobile/PC viewing.</span>
               </li>
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
-                <span>Calibrated audio mixers, wireless mics & studio lighting</span>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Executed Cat5e/Cat6 structured cabling, patch panel crimping, and testing.</span>
               </li>
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
-                <span>Live event technical support for large-scale property expos</span>
-              </li>
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
-                <span>Digital media management, archiving & video editing</span>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i>
+                <span>Preventive maintenance, rapid fault isolation, and component repair.</span>
               </li>
             </ul>
           </div>
 
-          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-800/80 mt-4 text-[11px]">
-            <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300">Studio Cameras</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300">Audio Mixers</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300">Broadcast Support</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300">Video Editing</span>
-            <span class="px-2 py-0.5 rounded bg-slate-800/70 text-slate-300">Content Ops</span>
+          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-800/80 mt-4">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">IP Cameras</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">DVR / NVR</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Cat6 Cabling</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">TCP/IP</span>
           </div>
         </div>
 
-        <!-- Bento 4: Education & Engineering Credentials -->
-        <div class="glass-card spotlight-card p-6 flex flex-col justify-between border-t-4 border-t-indigo-400" data-domain="cctv media">
+        <!-- Role 2: Zameen.com -->
+        <div class="glass-panel p-6 sm:p-7 rounded-2xl border-l-4 border-l-emerald-500 interactive-card flex flex-col justify-between">
           <div class="space-y-3">
-            <span class="text-xs font-mono uppercase tracking-wider text-indigo-400 font-semibold flex items-center gap-1.5">
-              <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i> Education
-            </span>
-
-            <div class="space-y-2.5">
-              <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800">
-                <div class="flex items-center justify-between text-xs font-bold text-white">
-                  <span>BS (In Progress)</span>
-                  <span class="text-[10px] text-cyan-400 font-mono">Present</span>
-                </div>
-                <p class="text-[11px] text-slate-400 mt-0.5">Govt Superior Science College Peshawar</p>
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-800/60">2019 – 2026</span>
+                <h3 class="text-xl font-bold text-white mt-1">Media Associate</h3>
+                <p class="text-xs font-semibold text-emerald-400">Zameen.com</p>
               </div>
-
-              <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800">
-                <div class="flex items-center justify-between text-xs font-bold text-white">
-                  <span>DAE (Civil-Electric)</span>
-                  <span class="text-[10px] text-emerald-400 font-mono">2016&ndash;19</span>
-                </div>
-                <p class="text-[11px] text-slate-400 mt-0.5">Peshawar Inst. of Technical Education</p>
-              </div>
-
-              <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800">
-                <div class="flex items-center justify-between text-xs font-bold text-white">
-                  <span>Matriculation (Science)</span>
-                  <span class="text-[10px] text-slate-400 font-mono">2013&ndash;15</span>
-                </div>
-                <p class="text-[11px] text-slate-400 mt-0.5">Forward High School Peshawar</p>
+              <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                <i data-lucide="radio" class="w-5 h-5"></i>
               </div>
             </div>
+
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Supported media operations by managing audiovisual equipment, assisting with content production, and ensuring smooth media setups.
+            </p>
+
+            <ul class="space-y-1.5 text-xs text-slate-300">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span>Managed camera gear, wireless audio, sound mixers, and studio lighting.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span>Supported live corporate event broadcasts and real estate expos.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span>Video recording, content management, and post-production editing.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-800/80 mt-4">
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Broadcast AV</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Camera Ops</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Live Events</span>
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300">Video Editing</span>
           </div>
         </div>
 
@@ -444,53 +626,373 @@
     </div>
   </section>
 
-  <!-- Interactive 1-Click Inquiry Builder -->
-  <section id="inquiry" class="py-12 relative z-10">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+  <!-- SERVICES SECTION (Concise & Practical) -->
+  <section id="services" class="py-16 sm:py-20 relative z-10 reveal-init">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="glass-card p-6 sm:p-8 border border-cyan-500/30 relative overflow-hidden">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+        <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Solutions Offered</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Technical <span class="text-gradient-cyan">Services</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Comprehensive physical security and broadcast solutions engineered for zero failure.
+        </p>
+      </div>
+
+      <!-- 4 Service Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <!-- Service 1 -->
+        <div class="glass-panel p-5 rounded-2xl space-y-3.5 interactive-card">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+            <i data-lucide="video" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">CCTV Surveillance</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Turnkey IP & analog surveillance setups, NVR configuration, motion alerts, and remote viewing.
+          </p>
+          <ul class="space-y-1 text-xs text-slate-300 pt-1">
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-cyan-400"></i> IP/NVR/DVR Config</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-cyan-400"></i> Remote Mobile Apps</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-cyan-400"></i> Night Vision Setup</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="glass-panel p-5 rounded-2xl space-y-3.5 interactive-card">
+          <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center">
+            <i data-lucide="cable" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">Structured Cabling</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Cat5e/Cat6 low-voltage network cabling, patch panel dressing, PoE switches, and LAN continuity.
+          </p>
+          <ul class="space-y-1 text-xs text-slate-300 pt-1">
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-sky-400"></i> Cat5e/Cat6 Pulls</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-sky-400"></i> Patch Panel Dressing</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-sky-400"></i> Router/Switch Setup</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="glass-panel p-5 rounded-2xl space-y-3.5 interactive-card">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+            <i data-lucide="mic" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">Live Event AV Ops</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Live broadcast engineering, studio camera handling, wireless audio mics, and stage lighting.
+          </p>
+          <ul class="space-y-1 text-xs text-slate-300 pt-1">
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i> Multi-Camera Shoots</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i> Sound & Lighting</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i> Live Stream Support</li>
+          </ul>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="glass-panel p-5 rounded-2xl space-y-3.5 interactive-card">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
+            <i data-lucide="wrench" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-base font-bold text-white">Diagnostics & Care</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Preventative maintenance, rapid fault isolation, camera cleaning, and emergency hardware repairs.
+          </p>
+          <ul class="space-y-1 text-xs text-slate-300 pt-1">
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-indigo-400"></i> Fault Diagnosis</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-indigo-400"></i> Hardware Replacement</li>
+            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-indigo-400"></i> Safety Compliance</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION (Interactive Filterable Grid) -->
+  <section id="skills" class="py-16 sm:py-20 border-t border-slate-800/80 bg-slate-900/30 relative z-10 reveal-init">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
+        <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Skills Matrix</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Technical <span class="text-gradient-cyan">Capabilities</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Filter by category to view detailed competencies and practical proficiencies.
+        </p>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap items-center justify-center gap-2 pt-4">
+          <button class="skill-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all bg-cyan-500 text-white shadow-md" data-filter="all">All</button>
+          <button class="skill-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all bg-slate-800/60 text-slate-300 hover:text-white" data-filter="cctv">CCTV & Security</button>
+          <button class="skill-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all bg-slate-800/60 text-slate-300 hover:text-white" data-filter="network">Cabling & Networks</button>
+          <button class="skill-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all bg-slate-800/60 text-slate-300 hover:text-white" data-filter="media">AV & Media</button>
+          <button class="skill-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all bg-slate-800/60 text-slate-300 hover:text-white" data-filter="core">Operations</button>
+        </div>
+      </div>
+
+      <!-- Skills Grid -->
+      <div id="skills-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        
+        <!-- Skill 1 -->
+        <div class="skill-card glass-panel p-4 rounded-xl flex items-center justify-between" data-category="cctv">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0">
+              <i data-lucide="video" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">CCTV Installation & Upkeep</h4>
+              <p class="text-[11px] text-slate-400">IP Cameras, lenses, power & mounting</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-cyan-400">98%</span>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="skill-card glass-panel p-4 rounded-xl flex items-center justify-between" data-category="cctv">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0">
+              <i data-lucide="hard-drive" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">DVR & NVR Configuration</h4>
+              <p class="text-[11px] text-slate-400">Storage, recording modes & alerts</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-cyan-400">95%</span>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="skill-card glass-panel p-4 rounded-xl flex items-center justify-between" data-category="network">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center shrink-0">
+              <i data-lucide="cable" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Cat5e / Cat6 Cabling</h4>
+              <p class="text-[11px] text-slate-400">Structured pulls, crimping, testing</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-sky-400">96%</span>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="skill-card glass-panel p-4 rounded-xl flex items-center justify-between" data-category="network">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center shrink-0">
+              <i data-lucide="router" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">TCP/IP & Router/PoE Switch</h4>
+              <p class="text-[11px] text-slate-400">Subnetting, static IP, port forward</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-sky-400">90%</span>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="skill-card glass-panel p-4 rounded-xl flex items-center justify-between" data-category="media">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+              <i data-lucide="camera" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Camera Operation & Live Events</h4>
+              <p class="text-[11px] text-slate-400">Broadcast support, framing, recording</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-emerald-400">94%</span>
+        </div>
+
+        <!-- Skill 6 -->
+        <div class="skill-card glass-panel p-4 rounded-xl flex items-center justify-between" data-category="media">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+              <i data-lucide="sliders" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Audio & Studio Equipment</h4>
+              <p class="text-[11px] text-slate-400">Wireless microphones, mixers, lights</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-emerald-400">92%</span>
+        </div>
+
+        <!-- Skill 7 -->
+        <div class="skill-card glass-panel p-4 rounded-xl flex items-center justify-between" data-category="media">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+              <i data-lucide="film" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Video Editing & Content Prep</h4>
+              <p class="text-[11px] text-slate-400">Post-production timeline cutting</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-emerald-400">88%</span>
+        </div>
+
+        <!-- Skill 8 -->
+        <div class="skill-card glass-panel p-4 rounded-xl flex items-center justify-between" data-category="cctv core">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0">
+              <i data-lucide="wrench" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Fault Diagnosis & Repair</h4>
+              <p class="text-[11px] text-slate-400">Hardware & network trouble isolation</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-cyan-400">96%</span>
+        </div>
+
+        <!-- Skill 9 -->
+        <div class="skill-card glass-panel p-4 rounded-xl flex items-center justify-between" data-category="core">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center shrink-0">
+              <i data-lucide="shield" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Safety Compliance & Reports</h4>
+              <p class="text-[11px] text-slate-400">Electrical safety & client logging</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-indigo-400">95%</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION SECTION (Clean 3-Grid) -->
+  <section id="education" class="py-16 sm:py-20 relative z-10 reveal-init">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+        <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Academic Record</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Education & <span class="text-gradient-cyan">Qualifications</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Technical diplomas and academic background supporting my technical career.
+        </p>
+      </div>
+
+      <!-- 3 Education Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        
+        <div class="glass-panel p-5 sm:p-6 rounded-2xl border-t-4 border-t-cyan-500 interactive-card">
+          <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-800/60">In Progress</span>
+          <h3 class="text-base font-bold text-white mt-2">Bachelor of Science (BS)</h3>
+          <p class="text-xs font-semibold text-cyan-400 mt-0.5">Govt Superior Science College</p>
+          <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1">
+            <i data-lucide="map-pin" class="w-3 h-3"></i> Peshawar, Pakistan
+          </p>
+        </div>
+
+        <div class="glass-panel p-5 sm:p-6 rounded-2xl border-t-4 border-t-emerald-500 interactive-card">
+          <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-800/60">2016 – 2019</span>
+          <h3 class="text-base font-bold text-white mt-2">DAE (Civil &ndash; Electric)</h3>
+          <p class="text-xs font-semibold text-emerald-400 mt-0.5">Peshawar Institute of Technical Education</p>
+          <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1">
+            <i data-lucide="building" class="w-3 h-3"></i> 3-Year Technical Diploma
+          </p>
+        </div>
+
+        <div class="glass-panel p-5 sm:p-6 rounded-2xl border-t-4 border-t-sky-500 interactive-card">
+          <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-sky-950/80 text-sky-300 border border-sky-800/60">2013 – 2015</span>
+          <h3 class="text-base font-bold text-white mt-2">Matriculation (Science)</h3>
+          <p class="text-xs font-semibold text-sky-400 mt-0.5">Forward High School</p>
+          <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1">
+            <i data-lucide="book-open" class="w-3 h-3"></i> Peshawar, Pakistan
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE INQUIRY BUILDER (User-Friendly Conversion Tool) -->
+  <section id="estimator" class="py-16 sm:py-20 border-t border-slate-800/80 bg-slate-900/40 relative z-10 estimator-card reveal-init">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-cyan-500/40 relative">
+        <div class="space-y-2 mb-6 text-center sm:text-left">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-950/70 border border-cyan-800/60 text-cyan-300 text-xs font-semibold">
+            <i data-lucide="sparkles" class="w-3 h-3"></i>
+            <span>Instant Inquiry Builder</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-white">
+            Need a Technician or AV Support? <span class="text-gradient-cyan">Send a 1-Click Inquiry</span>
+          </h2>
+          <p class="text-slate-400 text-xs sm:text-sm">
+            Select what you need and launch a pre-formatted message directly to Muhammad Usman on WhatsApp or Email.
+          </p>
+        </div>
+
+        <!-- Service Options -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 mb-5">
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 cursor-pointer transition-all text-xs font-medium text-slate-200">
+            <input type="checkbox" value="CCTV Installation & Setup" class="service-checkbox w-4 h-4 text-cyan-500 rounded bg-slate-800 border-slate-700" checked>
+            <span>CCTV Camera Setup</span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 cursor-pointer transition-all text-xs font-medium text-slate-200">
+            <input type="checkbox" value="NVR/DVR Remote View Setup" class="service-checkbox w-4 h-4 text-cyan-500 rounded bg-slate-800 border-slate-700" checked>
+            <span>NVR/DVR Remote View</span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 cursor-pointer transition-all text-xs font-medium text-slate-200">
+            <input type="checkbox" value="Cat6 Structured Cabling" class="service-checkbox w-4 h-4 text-cyan-500 rounded bg-slate-800 border-slate-700">
+            <span>Cat6 Structured Cabling</span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 cursor-pointer transition-all text-xs font-medium text-slate-200">
+            <input type="checkbox" value="Live Event AV Operations" class="service-checkbox w-4 h-4 text-cyan-500 rounded bg-slate-800 border-slate-700">
+            <span>Live Event AV Support</span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 cursor-pointer transition-all text-xs font-medium text-slate-200">
+            <input type="checkbox" value="Video Recording & Media" class="service-checkbox w-4 h-4 text-cyan-500 rounded bg-slate-800 border-slate-700">
+            <span>Video Recording / Editing</span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 cursor-pointer transition-all text-xs font-medium text-slate-200">
+            <input type="checkbox" value="CCTV Diagnostics & Repair" class="service-checkbox w-4 h-4 text-cyan-500 rounded bg-slate-800 border-slate-700">
+            <span>Diagnostics & Repair</span>
+          </label>
+        </div>
+
+        <!-- Optional Location & Details -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5 text-xs">
           <div>
-            <div class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold mb-1">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Quick Service Inquirer
-            </div>
-            <h3 class="text-xl sm:text-2xl font-black text-white">Select What You Need & Get an Instant Quote</h3>
+            <label for="inquiry-location" class="block font-semibold text-slate-400 mb-1">Location</label>
+            <select id="inquiry-location" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2 text-slate-200 focus:border-cyan-500 focus:outline-none">
+              <option value="Peshawar">Peshawar (On-site)</option>
+              <option value="Islamabad / Rawalpindi">Islamabad / Rawalpindi</option>
+              <option value="Other KPK / Pakistan Location">Other Region in Pakistan</option>
+              <option value="Remote Consultation">Remote Technical Guidance</option>
+            </select>
           </div>
-          <span class="text-xs text-slate-400">Click chips to toggle</span>
+          <div>
+            <label for="inquiry-notes" class="block font-semibold text-slate-400 mb-1">Brief Note (Optional)</label>
+            <input type="text" id="inquiry-notes" placeholder="e.g. 8 IP cameras for commercial office" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2 text-slate-200 focus:border-cyan-500 focus:outline-none">
+          </div>
         </div>
 
-        <!-- Interactive Service Chips -->
-        <div class="flex flex-wrap gap-2.5 mb-6">
-          <button type="button" class="service-chip active-chip px-3.5 py-2 rounded-xl text-xs font-semibold border border-cyan-400 bg-cyan-500/20 text-cyan-300 transition-all">
-            📹 CCTV Camera Installation
-          </button>
-          <button type="button" class="service-chip active-chip px-3.5 py-2 rounded-xl text-xs font-semibold border border-cyan-400 bg-cyan-500/20 text-cyan-300 transition-all">
-            📱 DVR/NVR Remote Mobile View
-          </button>
-          <button type="button" class="service-chip px-3.5 py-2 rounded-xl text-xs font-semibold border border-slate-700 bg-slate-900/60 text-slate-300 transition-all hover:border-cyan-400/50">
-            🌐 Cat6 Structured Cabling
-          </button>
-          <button type="button" class="service-chip px-3.5 py-2 rounded-xl text-xs font-semibold border border-slate-700 bg-slate-900/60 text-slate-300 transition-all hover:border-cyan-400/50">
-            🎙️ Live Event AV & Sound Setup
-          </button>
-          <button type="button" class="service-chip px-3.5 py-2 rounded-xl text-xs font-semibold border border-slate-700 bg-slate-900/60 text-slate-300 transition-all hover:border-cyan-400/50">
-            🎥 Studio Camera & Lighting
-          </button>
-          <button type="button" class="service-chip px-3.5 py-2 rounded-xl text-xs font-semibold border border-slate-700 bg-slate-900/60 text-slate-300 transition-all hover:border-cyan-400/50">
-            🔧 System Diagnostics & Repairs
-          </button>
-        </div>
-
-        <!-- Actions -->
-        <div class="flex flex-wrap items-center gap-3 pt-3 border-t border-slate-800">
-          <button id="quick-inquiry-wa" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-emerald-600/25 transition-all">
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center gap-3">
+          <button id="estimator-whatsapp-btn" class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-md shadow-emerald-600/20">
             <i data-lucide="message-circle" class="w-4 h-4"></i>
-            <span>Send Selected to WhatsApp</span>
+            <span>Send to WhatsApp (+92 3325145099)</span>
           </button>
-          <button id="quick-inquiry-mail" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-cyan-600/25 transition-all">
+          <button id="estimator-email-btn" class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs transition-all shadow-md shadow-cyan-600/20">
             <i data-lucide="mail" class="w-4 h-4"></i>
-            <span>Send via Email</span>
+            <span>Send to Email</span>
           </button>
         </div>
 
@@ -499,116 +1001,186 @@
     </div>
   </section>
 
-  <!-- Clean Direct Contact & Quick Message -->
-  <section id="contact" class="py-14 relative z-10 border-t border-slate-800/80">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+  <!-- CONTACT SECTION (Direct Cards + Clean Form) -->
+  <section id="contact" class="py-16 sm:py-20 relative z-10 reveal-init">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-lg mx-auto mb-10 space-y-2">
-        <h2 class="text-2xl sm:text-3xl font-black text-white">Let's Connect Directly</h2>
-        <p class="text-xs sm:text-sm text-slate-400">Available for technical roles, on-site contracts, or project inquiries.</p>
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+        <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Get In Touch</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Connect with <span class="text-gradient-cyan">Muhammad Usman</span>
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Available for technical contractor work, full-time positions, and operational support.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <!-- 2-Column Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-5xl mx-auto items-start">
         
-        <!-- Phone Card -->
-        <div class="glass-card p-4 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0">
-              <i data-lucide="phone" class="w-4 h-4"></i>
+        <!-- Left: Quick Channels (5 Cols) -->
+        <div class="lg:col-span-5 space-y-3">
+          
+          <!-- WhatsApp Card -->
+          <a href="https://wa.me/923325145099" target="_blank" class="glass-panel p-4 rounded-xl flex items-center justify-between border-l-4 border-l-emerald-500 hover:border-emerald-400 transition-all group">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="text-[10px] text-slate-400 font-semibold uppercase">WhatsApp (Fastest)</p>
+                <p class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">+92 3325145099</p>
+              </div>
+            </div>
+            <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-emerald-400 transition-colors"></i>
+          </a>
+
+          <!-- Phone Card -->
+          <div class="glass-panel p-4 rounded-xl flex items-center justify-between border-l-4 border-l-cyan-500 hover:border-cyan-400 transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0">
+                <i data-lucide="phone-call" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="text-[10px] text-slate-400 font-semibold uppercase">Phone Call</p>
+                <a href="tel:+923325145099" class="text-sm font-bold text-white hover:text-cyan-400 transition-colors">+92 3325145099</a>
+              </div>
+            </div>
+            <button id="copy-phone-btn" class="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-cyan-400 transition-colors" title="Copy Phone Number" aria-label="Copy Phone Number">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Email Card -->
+          <div class="glass-panel p-4 rounded-xl flex items-center justify-between border-l-4 border-l-sky-500 hover:border-sky-400 transition-all">
+            <div class="flex items-center gap-3 overflow-hidden">
+              <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center shrink-0">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div class="overflow-hidden">
+                <p class="text-[10px] text-slate-400 font-semibold uppercase">Email</p>
+                <a href="mailto:usmanwadood090@gmail.com" class="text-xs sm:text-sm font-bold text-white hover:text-sky-400 transition-colors truncate block">usmanwadood090@gmail.com</a>
+              </div>
+            </div>
+            <button id="copy-email-btn" class="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-sky-400 transition-colors shrink-0" title="Copy Email Address" aria-label="Copy Email Address">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Location Card -->
+          <div class="glass-panel p-4 rounded-xl flex items-center gap-3 border-l-4 border-l-indigo-500">
+            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center shrink-0">
+              <i data-lucide="map-pin" class="w-5 h-5"></i>
             </div>
             <div>
-              <p class="text-[10px] uppercase font-mono text-slate-400">Call / Text</p>
-              <a href="tel:+923325145099" class="text-xs sm:text-sm font-bold text-white hover:text-cyan-400 transition-colors">+92 3325145099</a>
+              <p class="text-[10px] text-slate-400 font-semibold uppercase">Location</p>
+              <p class="text-xs sm:text-sm font-bold text-white">Peshawar, Khyber Pakhtunkhwa, PK</p>
             </div>
           </div>
-          <button data-copy="+923325145099" class="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-cyan-400" title="Copy Phone Number">
-            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-          </button>
+
         </div>
 
-        <!-- WhatsApp Card -->
-        <a href="https://wa.me/923325145099" target="_blank" class="glass-card p-4 flex items-center justify-between group hover:border-emerald-500/50">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
-              <i data-lucide="message-circle" class="w-4 h-4"></i>
-            </div>
-            <div>
-              <p class="text-[10px] uppercase font-mono text-slate-400">WhatsApp</p>
-              <p class="text-xs sm:text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Instant Chat</p>
-            </div>
-          </div>
-          <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-emerald-400"></i>
-        </a>
+        <!-- Right: Clean Contact Form (7 Cols) -->
+        <div class="lg:col-span-7 glass-panel p-5 sm:p-7 rounded-2xl">
+          <h3 class="text-base font-bold text-white mb-1 flex items-center gap-2">
+            <i data-lucide="send" class="w-4 h-4 text-cyan-400"></i>
+            <span>Send Direct Message</span>
+          </h3>
+          <p class="text-slate-400 text-xs mb-4">
+            Type your message below and send via email client:
+          </p>
 
-        <!-- Email Card -->
-        <div class="glass-card p-4 flex items-center justify-between">
-          <div class="flex items-center gap-3 overflow-hidden">
-            <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center shrink-0">
-              <i data-lucide="mail" class="w-4 h-4"></i>
+          <form id="contact-form" class="space-y-3 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="form-name" class="block font-semibold text-slate-300 mb-1">Your Name *</label>
+                <input type="text" id="form-name" required placeholder="e.g. Tariq Khan" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none">
+              </div>
+              <div>
+                <label for="form-email" class="block font-semibold text-slate-300 mb-1">Your Email *</label>
+                <input type="email" id="form-email" required placeholder="e.g. tariq@domain.com" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none">
+              </div>
             </div>
-            <div class="overflow-hidden">
-              <p class="text-[10px] uppercase font-mono text-slate-400">Email</p>
-              <a href="mailto:usmanwadood090@gmail.com" class="text-xs font-bold text-white hover:text-sky-400 transition-colors truncate block">usmanwadood090@gmail.com</a>
+
+            <div>
+              <label for="form-subject" class="block font-semibold text-slate-300 mb-1">Subject</label>
+              <input type="text" id="form-subject" placeholder="e.g. Job Opportunity / Technical Project" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none">
             </div>
-          </div>
-          <button data-copy="usmanwadood090@gmail.com" class="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-sky-400 shrink-0" title="Copy Email">
-            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-          </button>
+
+            <div>
+              <label for="form-message" class="block font-semibold text-slate-300 mb-1">Message *</label>
+              <textarea id="form-message" rows="3" required placeholder="Your project details or inquiry..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white font-semibold shadow-md shadow-cyan-500/20 transition-all">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              <span>Send Message</span>
+            </button>
+          </form>
         </div>
 
       </div>
-
-      <!-- Quick Message Form -->
-      <form id="quick-contact-form" class="glass-card p-6 space-y-3">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <input type="text" id="cf-name" placeholder="Your Name" required class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none">
-          <input type="email" id="cf-email" placeholder="Your Email" required class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none">
-        </div>
-        <textarea id="cf-message" rows="3" placeholder="Tell Muhammad Usman what you need..." required class="w-full bg-slate-900/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:border-cyan-400 focus:outline-none resize-none"></textarea>
-        <button type="submit" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-white text-xs font-bold shadow-md shadow-cyan-500/25 transition-transform active:scale-95">
-          <i data-lucide="send" class="w-3.5 h-3.5"></i>
-          <span>Send Message</span>
-        </button>
-      </form>
 
     </div>
   </section>
 
-  <!-- Floating Sticky Quick Action Bar (Ultra User-Friendly) -->
-  <aside class="floating-quickbar no-print" aria-label="Quick Action Bar">
-    <div class="flex items-center gap-2 text-xs">
-      <a href="https://wa.me/923325145099" target="_blank" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-transform active:scale-95 shadow">
-        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-        <span>WhatsApp</span>
-      </a>
-      <a href="tel:+923325145099" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold transition-colors">
-        <i data-lucide="phone" class="w-3.5 h-3.5 text-cyan-400"></i>
-        <span>Call</span>
-      </a>
-      <a href="assets/Muhammad_Usman_CV.pdf" download="Muhammad_Usman_CV.pdf" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition-colors">
-        <i data-lucide="download" class="w-3.5 h-3.5"></i>
-        <span>CV</span>
-      </a>
+  <!-- RESUME DOWNLOAD BANNER -->
+  <section class="py-10 border-t border-slate-800 bg-slate-950/80 relative z-10 no-print">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-4">
+      <h3 class="text-lg sm:text-xl font-bold text-white">Need a Physical or PDF Copy of the CV?</h3>
+      <p class="text-slate-400 text-xs sm:text-sm max-w-md mx-auto">
+        Download Muhammad Usman's official CV or print this optimized portfolio page.
+      </p>
+      <div class="flex items-center justify-center gap-3 pt-1">
+        <a href="assets/Muhammad_Usman_CV.pdf" download="Muhammad_Usman_CV.pdf" class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold shadow-md transition-all">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Download PDF CV</span>
+        </a>
+        <button onclick="window.print()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/80 hover:bg-slate-800 text-slate-200 text-xs font-semibold transition-all">
+          <i data-lucide="printer" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span>Print Profile</span>
+        </button>
+      </div>
     </div>
-  </aside>
+  </section>
 
-  <!-- Footer -->
-  <footer class="py-8 border-t border-slate-800/80 bg-slate-950 text-slate-500 text-xs text-center relative z-10">
-    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p>&copy; 2026 Muhammad Usman &bull; CCTV & Media Operations Specialist &bull; Peshawar, PK</p>
-      <div class="flex items-center gap-4 text-slate-400">
-        <a href="#hero" class="hover:text-cyan-400">Top</a>
-        <a href="#bento" class="hover:text-cyan-400">Experience</a>
-        <a href="#inquiry" class="hover:text-cyan-400">Inquiry</a>
-        <a href="#contact" class="hover:text-cyan-400">Contact</a>
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-slate-800/80 bg-slate-950 text-slate-400 text-xs relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-600 to-emerald-400 flex items-center justify-center text-white font-bold text-[10px]">
+          MU
+        </div>
+        <span class="text-white font-semibold">Muhammad Usman</span>
+        <span class="text-slate-500">&bull;</span>
+        <span class="text-slate-400 text-[11px]">CCTV & Media Specialist</span>
+      </div>
+
+      <div class="flex gap-4 text-[11px] text-slate-400">
+        <a href="#hero" class="hover:text-cyan-400 transition-colors">Home</a>
+        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#services" class="hover:text-cyan-400 transition-colors">Services</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      </div>
+
+      <div class="text-[11px] text-slate-500">
+        &copy; 2026 Muhammad Usman
       </div>
     </div>
   </footer>
 
-  <!-- Toast Notification Container -->
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button id="back-to-top" title="Back to top" aria-label="Back to top">
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
   <div id="toast-container"></div>
 
-  <!-- JavaScript -->
+  <!-- JavaScript File -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -1,99 +1,258 @@
 /**
- * Muhammad Usman - Enhanced Portfolio JavaScript
- * Features: Typewriter Hero Effect, Domain Switcher, 3D Hover Spotlight,
- * Interactive Quickbar, Service Builder, Theme Management & Toast
+ * Muhammad Usman - Portfolio Enhanced JavaScript
+ * Features: Typewriter, Counter Animation, Domain Toggle, Interactive Filter,
+ * Smooth Scroll, Back-to-Top, Toast Notifications, Clipboard Feedback
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Lucide Icons
   if (window.lucide) {
     window.lucide.createIcons();
   }
 
   initTheme();
-  initHeroTypewriter();
-  initDomainSwitcher();
-  initSpotlightEffect();
-  initServiceInquiry();
-  initCopyActions();
-  initContactForm();
-  initScrollEffects();
+  initNavigation();
+  initTypewriter();
+  initCounterAnimation();
+  initDomainToggle();
+  initSkillFiltering();
+  initServiceEstimator();
+  initContactActions();
+  initScrollReveal();
+  initBackToTop();
 });
 
 /* --------------------------------------------------------------------------
- * 1. HERO TYPEWRITER / ROLE ROTATOR
+ * 1. THEME TOGGLER (Dark / Light)
  * -------------------------------------------------------------------------- */
-function initHeroTypewriter() {
-  const target = document.getElementById('role-rotator');
-  if (!target) return;
+function initTheme() {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+  const html = document.documentElement;
 
-  const roles = [
-    'CCTV Surveillance Systems',
-    'Audiovisual & Live Broadcasts',
-    'Cat6 Structured Cabling & Networks',
-    'DVR & NVR Security Storage',
-    'Multi-Cam Video Production'
-  ];
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-  let roleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let speed = 90;
-
-  function type() {
-    const currentRole = roles[roleIndex];
-
-    if (isDeleting) {
-      target.textContent = currentRole.substring(0, charIndex - 1);
-      charIndex--;
-      speed = 45;
-    } else {
-      target.textContent = currentRole.substring(0, charIndex + 1);
-      charIndex++;
-      speed = 90;
-    }
-
-    if (!isDeleting && charIndex === currentRole.length) {
-      speed = 2200; // Pause at full word
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-      speed = 400; // Pause before typing new word
-    }
-
-    setTimeout(type, speed);
+  if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+    html.classList.add('light');
+  } else {
+    html.classList.remove('light');
   }
 
-  type();
+  function toggleTheme() {
+    html.classList.toggle('light');
+    const currentTheme = html.classList.contains('light') ? 'light' : 'dark';
+    localStorage.setItem('theme', currentTheme);
+    showToast(`Switched to ${currentTheme} mode`, 'info');
+  }
+
+  if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+  if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
 }
 
 /* --------------------------------------------------------------------------
- * 2. DOMAIN SWITCHER (All / CCTV / Media)
+ * 2. NAVIGATION & MOBILE MENU
  * -------------------------------------------------------------------------- */
-function initDomainSwitcher() {
-  const switchBtns = document.querySelectorAll('.domain-pill');
-  const items = document.querySelectorAll('[data-domain]');
+function initNavigation() {
+  const navbar = document.getElementById('main-nav');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  const navLinks = document.querySelectorAll('.desktop-nav-link');
+  const sections = document.querySelectorAll('section[id]');
 
-  switchBtns.forEach(btn => {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar.classList.add('shadow-lg', 'bg-opacity-95');
+    } else {
+      navbar.classList.remove('shadow-lg', 'bg-opacity-95');
+    }
+
+    // Scroll spy
+    let currentSectionId = '';
+    const scrollPosition = window.scrollY + 140;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPosition >= top && scrollPosition < top + height) {
+        currentSectionId = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('text-cyan-400', 'font-semibold');
+      if (link.getAttribute('href') === `#${currentSectionId}`) {
+        link.classList.add('text-cyan-400', 'font-semibold');
+      }
+    });
+  });
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * 3. TYPEWRITER ANIMATION (Hero Section)
+ * -------------------------------------------------------------------------- */
+function initTypewriter() {
+  const target = document.getElementById('typewriter-text');
+  if (!target) return;
+
+  const roles = [
+    'CCTV & Surveillance Specialist',
+    'Media Operations Associate',
+    'Cat6 & Network Infrastructure Tech',
+    'Live Event & Broadcast Specialist'
+  ];
+
+  let roleIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  const typeSpeed = 70;
+  const deleteSpeed = 35;
+  const pauseEnd = 2000;
+  const pauseStart = 400;
+
+  function type() {
+    const currentWord = roles[roleIdx];
+
+    if (isDeleting) {
+      target.textContent = currentWord.substring(0, charIdx - 1);
+      charIdx--;
+    } else {
+      target.textContent = currentWord.substring(0, charIdx + 1);
+      charIdx++;
+    }
+
+    let delay = isDeleting ? deleteSpeed : typeSpeed;
+
+    if (!isDeleting && charIdx === currentWord.length) {
+      delay = pauseEnd;
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      roleIdx = (roleIdx + 1) % roles.length;
+      delay = pauseStart;
+    }
+
+    setTimeout(type, delay);
+  }
+
+  setTimeout(type, 300);
+}
+
+/* --------------------------------------------------------------------------
+ * 4. ANIMATED STATS COUNTER
+ * -------------------------------------------------------------------------- */
+function initCounterAnimation() {
+  const counters = document.querySelectorAll('.stat-counter');
+  let animated = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        counters.forEach(counter => {
+          const target = parseFloat(counter.getAttribute('data-target'));
+          const suffix = counter.getAttribute('data-suffix') || '';
+          const isDecimal = target % 1 !== 0;
+          let current = 0;
+          const duration = 1500;
+          const stepTime = 30;
+          const totalSteps = duration / stepTime;
+          const increment = target / totalSteps;
+
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              counter.textContent = (isDecimal ? target.toFixed(1) : Math.round(target)) + suffix;
+              clearInterval(timer);
+            } else {
+              counter.textContent = (isDecimal ? current.toFixed(1) : Math.round(current)) + suffix;
+            }
+          }, stepTime);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsSection = document.getElementById('stats-strip');
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * 5. INTERACTIVE DOMAIN SWITCHER (Surveillance vs Media)
+ * -------------------------------------------------------------------------- */
+function initDomainToggle() {
+  const toggleBtns = document.querySelectorAll('.domain-toggle-btn');
+  const surveillancePanel = document.getElementById('domain-surveillance');
+  const mediaPanel = document.getElementById('domain-media');
+
+  if (!toggleBtns.length || !surveillancePanel || !mediaPanel) return;
+
+  toggleBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      switchBtns.forEach(b => {
-        b.classList.remove('bg-cyan-500', 'text-white', 'shadow-md', 'shadow-cyan-500/25');
+      toggleBtns.forEach(b => {
+        b.classList.remove('bg-cyan-500', 'text-white', 'shadow-md');
+        b.classList.add('bg-slate-800/80', 'text-slate-300');
+      });
+
+      btn.classList.add('bg-cyan-500', 'text-white', 'shadow-md');
+      btn.classList.remove('bg-slate-800/80', 'text-slate-300');
+
+      const domain = btn.getAttribute('data-domain');
+
+      if (domain === 'surveillance') {
+        surveillancePanel.classList.remove('hidden');
+        mediaPanel.classList.add('hidden');
+      } else {
+        surveillancePanel.classList.add('hidden');
+        mediaPanel.classList.remove('hidden');
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+ * 6. SKILLS CATEGORY FILTERING
+ * -------------------------------------------------------------------------- */
+function initSkillFiltering() {
+  const filterBtns = document.querySelectorAll('.skill-filter-btn');
+  const skillCards = document.querySelectorAll('.skill-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-cyan-500', 'text-white', 'shadow-md');
         b.classList.add('bg-slate-800/60', 'text-slate-300');
       });
 
-      btn.classList.add('bg-cyan-500', 'text-white', 'shadow-md', 'shadow-cyan-500/25');
+      btn.classList.add('bg-cyan-500', 'text-white', 'shadow-md');
       btn.classList.remove('bg-slate-800/60', 'text-slate-300');
 
-      const domain = btn.getAttribute('data-target');
+      const filter = btn.getAttribute('data-filter');
 
-      items.forEach(item => {
-        const itemDomain = item.getAttribute('data-domain');
-        if (domain === 'all' || itemDomain === domain || itemDomain.includes(domain)) {
-          item.style.display = '';
-          item.style.opacity = '1';
-          item.style.transform = 'scale(1)';
+      skillCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter || category.includes(filter)) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
         } else {
-          item.style.display = 'none';
+          card.style.display = 'none';
         }
       });
     });
@@ -101,204 +260,180 @@ function initDomainSwitcher() {
 }
 
 /* --------------------------------------------------------------------------
- * 3. 3D SPOTLIGHT / HOVER EFFECT
+ * 7. INTERACTIVE SERVICE ESTIMATOR / INQUIRY BUILDER
  * -------------------------------------------------------------------------- */
-function initSpotlightEffect() {
-  const cards = document.querySelectorAll('.spotlight-card');
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    });
-  });
-}
+function initServiceEstimator() {
+  const checkboxes = document.querySelectorAll('.service-checkbox');
+  const locationSelect = document.getElementById('inquiry-location');
+  const notesInput = document.getElementById('inquiry-notes');
+  const whatsappSendBtn = document.getElementById('estimator-whatsapp-btn');
+  const emailSendBtn = document.getElementById('estimator-email-btn');
 
-/* --------------------------------------------------------------------------
- * 4. THEME TOGGLER (Dark / Light)
- * -------------------------------------------------------------------------- */
-function initTheme() {
-  const toggleBtn = document.getElementById('theme-toggle');
-  const toggleMobile = document.getElementById('theme-toggle-mobile');
-  const html = document.documentElement;
-
-  const saved = localStorage.getItem('theme');
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-
-  if (saved === 'light' || (!saved && prefersLight)) {
-    html.classList.add('light');
-  }
-
-  function toggle() {
-    html.classList.toggle('light');
-    const isLight = html.classList.contains('light');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    showToast(isLight ? 'Switched to Light mode' : 'Switched to Dark mode');
-  }
-
-  if (toggleBtn) toggleBtn.addEventListener('click', toggle);
-  if (toggleMobile) toggleMobile.addEventListener('click', toggle);
-}
-
-/* --------------------------------------------------------------------------
- * 5. INTERACTIVE SERVICE INQUIRY (WhatsApp / Email)
- * -------------------------------------------------------------------------- */
-function initServiceInquiry() {
-  const chips = document.querySelectorAll('.service-chip');
-  const waBtn = document.getElementById('quick-inquiry-wa');
-  const mailBtn = document.getElementById('quick-inquiry-mail');
-
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      chip.classList.toggle('active-chip');
-      chip.classList.toggle('bg-cyan-500/20');
-      chip.classList.toggle('border-cyan-400');
-      chip.classList.toggle('text-cyan-300');
-    });
-  });
-
-  function getSelectedServices() {
+  function generateInquiryMessage() {
     const selected = [];
-    document.querySelectorAll('.service-chip.active-chip').forEach(c => {
-      selected.push(c.textContent.trim());
+    checkboxes.forEach(cb => {
+      if (cb.checked) selected.push(cb.value);
     });
-    return selected.length ? selected : ['General Technical Consultation'];
+
+    const location = locationSelect ? locationSelect.value : 'Peshawar';
+    const notes = notesInput && notesInput.value.trim() ? notesInput.value.trim() : 'Standard requirements';
+
+    let msg = `Hello Muhammad Usman,\n\nI reviewed your portfolio and would like to inquire about:\n`;
+    msg += `• Location: ${location}\n`;
+    msg += `• Services Needed:\n  - ${selected.length > 0 ? selected.join('\n  - ') : 'General Technical Inquiry'}\n`;
+    msg += `• Project Details: ${notes}\n\nPlease let me know your availability!`;
+
+    return msg;
   }
 
-  if (waBtn) {
-    waBtn.addEventListener('click', () => {
-      const services = getSelectedServices().join(', ');
-      const msg = `Hello Muhammad Usman, I reviewed your portfolio and would like to discuss: ${services}.`;
-      const url = `https://wa.me/923325145099?text=${encodeURIComponent(msg)}`;
+  if (whatsappSendBtn) {
+    whatsappSendBtn.addEventListener('click', () => {
+      const text = generateInquiryMessage();
+      const url = `https://wa.me/923325145099?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
-      showToast('Opening WhatsApp chat...');
+      showToast('Opening WhatsApp with your inquiry...', 'success');
     });
   }
 
-  if (mailBtn) {
-    mailBtn.addEventListener('click', () => {
-      const services = getSelectedServices().join(', ');
-      const sub = encodeURIComponent('Technical Service Inquiry - ' + services);
-      const body = encodeURIComponent(`Hi Muhammad Usman,\n\nI am contacting you regarding: ${services}.\n\nPlease let me know your availability for a call.\n\nThank you.`);
-      window.location.href = `mailto:usmanwadood090@gmail.com?subject=${sub}&body=${body}`;
-      showToast('Opening Email draft...');
+  if (emailSendBtn) {
+    emailSendBtn.addEventListener('click', () => {
+      const text = generateInquiryMessage();
+      const subject = encodeURIComponent('Technical Inquiry for Muhammad Usman');
+      const body = encodeURIComponent(text);
+      window.location.href = `mailto:usmanwadood090@gmail.com?subject=${subject}&body=${body}`;
+      showToast('Drafting inquiry email...', 'success');
     });
   }
 }
 
 /* --------------------------------------------------------------------------
- * 6. ONE-CLICK COPY ACTIONS
+ * 8. CONTACT FORM & INSTANT CLIPBOARD ACTIONS
  * -------------------------------------------------------------------------- */
-function initCopyActions() {
-  document.querySelectorAll('[data-copy]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+function initContactActions() {
+  const form = document.getElementById('contact-form');
+  const copyEmailBtn = document.getElementById('copy-email-btn');
+  const copyPhoneBtn = document.getElementById('copy-phone-btn');
+
+  function copyTextWithFeedback(btn, textToCopy, successMsg) {
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      showToast(successMsg, 'success');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+      }, 2000);
+    });
+  }
+
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', () => {
+      copyTextWithFeedback(copyEmailBtn, 'usmanwadood090@gmail.com', 'Email copied to clipboard!');
+    });
+  }
+
+  if (copyPhoneBtn) {
+    copyPhoneBtn.addEventListener('click', () => {
+      copyTextWithFeedback(copyPhoneBtn, '+92 3325145099', 'Phone number copied to clipboard!');
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const val = btn.getAttribute('data-copy');
-      navigator.clipboard.writeText(val).then(() => {
-        showToast(`Copied: ${val}`);
-      });
+      const name = document.getElementById('form-name').value.trim();
+      const email = document.getElementById('form-email').value.trim();
+      const subject = document.getElementById('form-subject').value.trim() || 'New Message from Portfolio';
+      const message = document.getElementById('form-message').value.trim();
+
+      if (!name || !email || !message) {
+        showToast('Please fill in all required fields.', 'error');
+        return;
+      }
+
+      const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+      window.location.href = `mailto:usmanwadood090@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      showToast('Opening email client...', 'success');
+      form.reset();
     });
-  });
+  }
 }
 
 /* --------------------------------------------------------------------------
- * 7. CONTACT FORM
+ * 9. SCROLL REVEAL (IntersectionObserver)
  * -------------------------------------------------------------------------- */
-function initContactForm() {
-  const form = document.getElementById('quick-contact-form');
-  if (!form) return;
+function initScrollReveal() {
+  const elements = document.querySelectorAll('.reveal-init');
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(el => el.classList.add('reveal-active'));
+    return;
+  }
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('cf-name').value.trim();
-    const email = document.getElementById('cf-email').value.trim();
-    const message = document.getElementById('cf-message').value.trim();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
 
-    if (!name || !email || !message) {
-      showToast('Please complete all fields.', 'error');
-      return;
-    }
-
-    const sub = encodeURIComponent(`Portfolio Message from ${name}`);
-    const body = encodeURIComponent(`Sender: ${name} (${email})\n\nMessage:\n${message}`);
-    window.location.href = `mailto:usmanwadood090@gmail.com?subject=${sub}&body=${body}`;
-    showToast('Redirecting to your email client...');
-    form.reset();
-  });
+  elements.forEach(el => observer.observe(el));
 }
 
 /* --------------------------------------------------------------------------
- * 8. SCROLL & NAV BEHAVIOR
+ * 10. BACK TO TOP BUTTON
  * -------------------------------------------------------------------------- */
-function initScrollEffects() {
-  const nav = document.getElementById('main-nav');
-  const links = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
+function initBackToTop() {
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (!backToTopBtn) return;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      nav.classList.add('shadow-xl', 'bg-opacity-95');
+    if (window.scrollY > 350) {
+      backToTopBtn.classList.add('visible');
     } else {
-      nav.classList.remove('shadow-xl', 'bg-opacity-95');
+      backToTopBtn.classList.remove('visible');
     }
-
-    let current = '';
-    const scrollPos = window.scrollY + 140;
-
-    sections.forEach(sec => {
-      if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
-        current = sec.getAttribute('id');
-      }
-    });
-
-    links.forEach(l => {
-      if (l.getAttribute('href') === `#${current}`) {
-        l.classList.add('text-cyan-400', 'font-semibold');
-      } else {
-        l.classList.remove('text-cyan-400', 'font-semibold');
-      }
-    });
   });
 
-  // Mobile menu toggle
-  const mobBtn = document.getElementById('mobile-menu-btn');
-  const mobMenu = document.getElementById('mobile-menu');
-  if (mobBtn && mobMenu) {
-    mobBtn.addEventListener('click', () => {
-      mobMenu.classList.toggle('hidden');
-    });
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => mobMenu.classList.add('hidden'));
-    });
-  }
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
 /* --------------------------------------------------------------------------
- * 9. TOAST NOTIFICATION UTILITY
+ * 11. TOAST NOTIFICATIONS
  * -------------------------------------------------------------------------- */
-function showToast(text, type = 'info') {
-  let box = document.getElementById('toast-container');
-  if (!box) {
-    box = document.createElement('div');
-    box.id = 'toast-container';
-    document.body.appendChild(box);
+function showToast(message, type = 'info') {
+  let container = document.getElementById('toast-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'toast-container';
+    document.body.appendChild(container);
   }
 
   const toast = document.createElement('div');
   toast.className = 'toast';
+
+  let iconSvg = '';
+  if (type === 'success') {
+    iconSvg = '<svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+  } else if (type === 'error') {
+    iconSvg = '<svg class="w-4 h-4 text-red-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
+  } else {
+    iconSvg = '<svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+  }
+
   toast.innerHTML = `
-    <span class="w-2 h-2 rounded-full ${type === 'error' ? 'bg-red-400' : 'bg-cyan-400'} animate-pulse"></span>
-    <span class="text-xs sm:text-sm font-medium">${text}</span>
+    ${iconSvg}
+    <span class="text-xs sm:text-sm font-medium text-white">${message}</span>
   `;
 
-  box.appendChild(toast);
+  container.appendChild(toast);
 
   setTimeout(() => {
     toast.style.opacity = '0';
-    toast.style.transform = 'translateY(-10px)';
-    toast.style.transition = 'all 0.3s ease';
-    setTimeout(() => toast.remove(), 300);
-  }, 3200);
+    toast.style.transform = 'translateY(10px)';
+    toast.style.transition = 'all 0.25s ease';
+    setTimeout(() => toast.remove(), 250);
+  }, 3000);
 }
